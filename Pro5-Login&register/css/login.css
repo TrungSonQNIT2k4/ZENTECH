@@ -1,0 +1,246 @@
+main{
+    font-family: 'Francois One', sans-serif;
+}
+.container-login {
+    font-family: sans-serif;
+    width: 500px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    color: black; /* Chữ màu đen */
+    background-color: #f0f0f0; /* Màu xám trắng */
+    box-shadow: 5px 5px 10px #6e6e6e, -5px -5px 10px #bfbfbf; /* Bóng xám đậm */
+    margin: 0 auto; /* Căn giữa trang */
+    top: 50%; /* Đưa form vào giữa */
+    transform: translateY(10%); /* Để căn chỉnh trung tâm theo chiều dọc */
+    box-sizing: border-box; /* Đảm bảo các thành phần không bị cắt xén */
+    font-weight: 100;
+}
+
+
+.container-login .slider {
+    width: 200%;
+    position: relative;
+    transition: transform ease-out 0.4s;
+    display: flex;
+}
+
+#register_toggle {
+    display: none;
+}
+
+.container-login #register_toggle:checked + .slider {
+    transform: translateX(-50%);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 1.5em 2.5em;
+    width: 100%;
+}
+
+
+.title {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+    color: black; /* Đổi màu chữ thành đen */
+    padding: 10px;
+}
+
+.title-l {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 3em;
+    color: black; /* Đổi màu chữ thành đen */
+    padding: 10px;
+}
+
+.label svg {
+    fill: currentColor; /* Màu icon sẽ theo màu chữ */
+    margin-right: 10px; /* Khoảng cách giữa icon và chữ */
+    vertical-align: middle; /* Căn chỉnh icon theo dòng chữ */
+}
+
+form .form_control {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+
+form .form_control .label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transition: transform ease 0.2s;
+    transform: translate(0%, -50%);
+    font-size: 1.05rem;
+    user-select: none;
+    pointer-events: none;
+    color: #6e6e6e; /* Màu chữ nhạt hơn */
+}
+
+form .form_control .input {
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng của container */
+    background-color: transparent;
+    border: 1px solid #b0b0b0;
+    outline: none;
+    color: black;
+    padding: 0.5rem; /* Đồng bộ padding với nút */
+    font-size: 1.05rem;
+    border-radius: 5px; /* Đảm bảo viền cong tương tự với nút */
+    transition: box-shadow ease 0.2s;
+    box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng tới width */
+    box-shadow: 2px 2px 5px #6e6e6e, -2px -2px 5px #bfbfbf, inset 2px 2px 5px #6e6e6e, inset -2px -2px 5px #bfbfbf;
+}
+
+
+form .form_control .input:focus,
+form .form_control .input:valid {
+    box-shadow: 3px 3px 6px #6e6e6e, -3px -3px 6px #bfbfbf, inset 3px 3px 6px #6e6e6e, inset -3px -3px 6px #bfbfbf; /* Bóng đổ khi focus hoặc valid */
+}
+
+
+form .form_control .input:focus + .label,
+form .form_control .input:valid + .label {
+    transform: translate(-150%, -50%);
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+}
+  
+.flex-row > div > label {
+    font-size: 1.05rem;
+    color: black;
+    font-weight: 100;
+}
+
+.flex-row button {
+    width: 150px; /* Hoặc 100% nếu bạn muốn nút chiếm toàn bộ chiều rộng */
+}
+
+.span {
+    font-size: 1rem;
+    margin-left: 25px;
+    color: #0062ff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.error_message {
+    display: block; /* Để dòng chữ nhỏ đứng riêng */
+    font-size: 0.8em; /* Kích thước chữ nhỏ hơn */
+    color: red; /* Màu sắc chữ */
+    margin-top: -10px;
+    margin-left: 1px;
+    margin-bottom: -5px;
+}
+
+.p {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 1.05rem;
+}
+
+p.p.line2{
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+p.p.line::before,
+p.p.line::after,
+p.p.line2::before,
+p.p.line2::after {
+    content: '';
+    position: static;
+    top: 50%;
+    height: 0.5px; /* Độ dày của line */
+    background-color: black;
+    padding-left: 40px;
+    margin: 5px;
+    padding-right: 40px;
+}
+
+form button {
+    width: 100%; /* Đồng bộ width với input */
+    background-color: #d1eefbcc;
+    border: 1px solid #b0b0b0;
+    outline: none;
+    color: black;
+    font-weight: 600;
+    padding: 0.5rem; /* Đồng bộ padding với input */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    border-radius: 5px; /* Đảm bảo viền cong giống input */
+    transition: box-shadow ease 0.1s;
+    box-shadow: 1.5px 1.5px 3px #6e6e6e, -1.5px -1.5px 3px #bfbfbf, inset 0px 0px 0px #6e6e6e, inset 0px -0px 0px #bfbfbf;
+}
+
+form button:active {
+    box-shadow: 0px 0px 0px #6e6e6e, 0px 0px 0px #bfbfbf, inset 3px 3px 4px #6e6e6e, inset -3px -3px 4px #bfbfbf; /* Bóng xám đậm khi active */
+}
+
+
+
+.bottom_text {
+    font-size: 1.05rem;
+    margin-right: -20px;
+    color: black;
+    font-weight: 700;
+    margin-right: -50px;
+}
+
+.middle_text {
+    font-size: 1.05rem;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    color: black; /* Đổi màu chữ */
+    font-weight: 700;
+}
+
+
+.bottom_text .switch {
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.bottom_text .swtich:hover{
+    color: rgb(5, 146, 202); /* Đổi màu chữ khi hover */
+    text-decoration: underline; /* Thêm gạch chân khi hover */
+}    
+
+.btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    gap: 20px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    border: 1px solid #2d79f3;
+}

@@ -1,0 +1,98 @@
+.address_popup{
+    display: none;
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0,0, 0.5);
+}
+.info_popup{
+    position:absolute;
+    margin: 250px;
+    padding-left:150px ;
+}
+.info_user{
+    display: flex;
+}
+.address_choice{
+    font-size: 20px;
+    padding-right: 30px;
+    display: flex;
+    align-items:start;
+    border: 1px solid black;
+    background-color: white;
+}
+.info_address p{
+    padding-left: 20px;
+}
+.address_choice input{
+    margin-top: 20px;
+}
+.in_popup{
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    overflow-y: auto;
+    height: auto;
+    max-height: 350px;
+}
+.address_title{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(9, 87, 9);
+}
+.info_title{
+    display: flex;
+    justify-content: space-between;
+}
+.close_button{
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close_button:hover{
+    color: rgb(5, 104, 5);
+}
+.info_name{
+    border-right: 1px solid black;
+    padding-right: 20px;
+}
+.button_popup{
+    margin: 30px;
+}
+.button_cancel{
+    padding: 10px;
+    padding-right: 35px;
+    padding-left: 35px;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 20px;
+}
+.button_cancel:hover{
+    background-color: rgb(232, 234, 233);
+    cursor: pointer;
+}
+.button_confirm{
+    padding:10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: rgb(3, 103, 3);
+    color: white;
+    border: 1px solid black;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.button_confirm:hover{
+    background-color: rgb(17, 152, 17);
+    cursor: pointer;
+}
+.info_user a{
+    padding-left:20px ;
+    color: rgb(4, 83, 4);
+}
+.button_popup{
+    display: flex;
+    justify-content: right;
+}

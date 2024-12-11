@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+.main-container {
+    padding-left: 20px;
+}
+
+.form {
+    display: block;
+}
+.just-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: auto;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 100px;         /* Đặt kích thước cho ảnh */
+    height: 100px;        /* Đặt kích thước cho ảnh */
+    object-fit: cover;    /* Đảm bảo ảnh không bị méo và cắt đúng tỉ lệ */
+    border-radius: 50%;   /* Bo tròn ảnh */
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.sidebar .user-info {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar ul li a:hover {
+    color: #007BFF;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-container textarea {
+    background-color: #fff;
+    padding: 1rem;
+    padding-right: 3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 82%;  /* Chiều rộng linh hoạt */
+    height: auto;  /* Cho phép chiều cao thay đổi tự động */
+    min-height: 80px;  /* Đảm bảo chiều cao tối thiểu cho textarea */
+    max-height: 300px;  /* Giới hạn chiều cao tối đa để không quá dài */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    resize: vertical; /* Cho phép người dùng kéo dài chiều cao */
+    white-space: pre-wrap;  /* Giúp xuống dòng văn bản khi cần */
+    word-wrap: break-word;  /* Giúp chia từ khi văn bản quá dài */
+}
+
+  
+.input-container input, .form button {
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 8px 0;
+  }
+  
+.input-container input {
+    background-color: #fff;
+    padding: 1rem;
+    padding-right: 3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.button-container {
+    grid-column: 1 / -1; /* Đặt nút button chiếm toàn bộ chiều rộng form */
+    display: flex;
+    justify-content: center; /* Căn giữa nút button */
+    margin-top: 20px; /* Tạo khoảng cách trên nút */
+}
+
+button {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #3f3e3fea;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    max-width: 300px; /* Giới hạn chiều rộng tối đa */
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Hiệu ứng chuyển đổi mượt */
+}
+
+button:active {
+    transform: scale(0.95); /* Làm nút nhỏ lại khi nhấn */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Giảm bóng khi nhấn */
+}
+
+@media (max-width: 600px) {
+    .form {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+}
+  

@@ -1,0 +1,46 @@
+.content_info{
+    margin:20px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    height: auto;
+    width: auto;
+    display: flex;
+    /* ngang, dọc, bán kính làm mờ, độ trong suốt */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+
+}
+.content_ship{
+    display: flex;
+}
+.ship_time{
+    padding-right: 30px;
+}
+.content_user{
+    border-right: 1px solid black;
+    padding-right: 50px;
+}
+.content_ship{
+    padding-left: 60px;
+}
+.content_title{
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.content_number_phone{
+    color: gray;
+}
+.content_address{
+    color: gray;
+}
+.info_user{
+    line-height: 30px;
+}
+.content_detail_bill{
+    display: flex;
+    justify-content: right;
+}
+.content_detail_title{
+    text-align: right;
+    padding-right: 18px;
+}

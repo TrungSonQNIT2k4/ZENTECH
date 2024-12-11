@@ -1,0 +1,50 @@
+.payment_popup{
+    display: none;
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0,0, 0.5);
+}
+.payment_info_popup{
+    position:absolute;
+    margin: 250px;
+    padding-left:350px ;
+}
+.payment_choice{
+    display: flex;
+    font-size: 20px;
+    padding-right: 30px;
+    display: flex; 
+    align-items:start;
+    border: 1px solid black;
+    background-color: white;
+}
+.info_address p{
+    padding-left: 20px;
+}
+.payment_choice input{
+    margin-top: 25px;
+}
+.payment_in_popup{
+    background-color: white;
+    border: 1px solid black;
+    padding: 30px;
+}
+.payment_title{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(9, 87, 9);
+}
+.info_title{
+    display: flex;
+    justify-content: space-between;
+}
+.button_payment{
+    border: none;
+    color: rgb(4, 81, 4);
+    
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0);
+}

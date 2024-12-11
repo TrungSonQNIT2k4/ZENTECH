@@ -1,0 +1,293 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 ;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+background-color:#f4f4f4  ;  
+}
+.container{
+    display: inline-block;  
+    margin: 0 10%;  
+}
+.cart-product{
+    display: flex ;
+    gap: 20px;
+}
+.product-detail .left{
+    flex : 1;
+}
+.head{
+    display: flex;
+    line-height: 40px;
+}    
+.head .icon {
+    font-size: 40px;
+    color:#175034;
+}
+.text{
+    font-weight: 600;
+    color:#8a8e8c;
+}
+.icon-check{
+    text-align: center ;
+}
+.icon-check .check{
+    font-size: 80px ;
+    color:#175034 ;
+}
+.product-box{
+    background-color: white ;
+    border-radius: 10px;
+    border: 0.8px solid #f4f4f4 ;
+    margin-top: 20px ;
+    font-size: 14px;
+    width: 672px;
+}
+.product-box img{
+    width: 126px ;
+    height: 157px ;
+    margin: 20px 0 0 40px ;
+}
+.product-box .name{
+    font-weight: 600 ;
+    margin-left: 16px;
+    width: 180px ;
+    height: 32px;
+}
+.product-box .price{
+    display: flex ;
+    margin: 10px 16px ;
+}
+.price .price-sale{
+    color: #ed5555 ;
+    font-weight: 600;
+    padding-right: 10px;
+}
+.price .price-normal{
+    text-decoration-line: line-through ;
+}
+.soluong{
+    display: flex ;
+    padding-left: 50px;
+    position: relative ;
+}
+.count{
+    display: flex ;
+}
+.soluong .text-count{
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 600;
+    color:#8a8e8c;
+}
+.count .dau{
+    border: 0.8px solid #ccc ;
+    padding: 4px 8px ;
+}
+.delete-product{
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 10px  ;
+    border: 1px solid #ed5555 ;
+    color: white ;
+    background-color: #ed5555;
+    width: 20px ;
+    height: 20px ;
+    text-align: center;
+    line-height: 20px;
+    position: absolute ;
+    left: 90% ;
+    right: 0 ;
+    top : 50% ;
+}
+.list-voucher .voucher{
+    margin-left: 36px ;
+}
+.list-voucher .stt{
+    background-color: #e5b117;
+    border-radius: 5px ;
+    border: 1px solid #e5b117 ;
+    width: 40px ;
+    height: 20px ;
+    font-size: 12px;
+    color: white ;
+    font-weight: 600 ;
+    text-align: center;
+    line-height: 18px;
+    margin: 5px 0 ;
+}
+.list-voucher .description-voucher{
+    display: flex ;
+    border-radius: 10px ;
+    border: 0.8px solid #ccc ;
+    width: 602px ;
+    padding: 10px 10px ;
+}
+.list-voucher .des-voucher{
+    font-size: 13px ;
+    color:#8a8e8c ;
+}
+.list-voucher .circle{
+    font-size: 18px ;
+    width: 22px ;
+    height: 22px ;
+    border-radius: 50% ;
+    border: 1.8px solid #175034;
+    margin-right: 10px ;
+}
+.list-voucher .circle i{
+    color:#175034 ;
+}
+.list-voucher .show-more{  
+   display: flex ;
+   justify-content: center; /* Căn giữa theo chiều ngang */
+   align-items: center;
+   margin: 20px 0 ;
+   color:#175034 ;
+}
+.type{
+    display: flex ;
+    margin-left: 38px ;
+}
+.type .text-ver{
+    font-weight: 600;
+    color:#8a8e8c ;
+}
+.type .version{
+    color:#175034 ;
+    border-radius: 5px ;
+    border: 2px solid #175034 ;
+    padding: 10px 14px ;
+}
+.type .version-box{
+    margin:10px 20px 20px 0 ;
+}
+.payment{
+    background-color: white ;
+    margin-top: 20px ;
+    border-radius: 10px;
+    border: 1px solid #f4f4f4 ;
+}
+.payment .pay{
+    padding: 16px 16px ;
+    font-size: 14px ;
+    font-weight: 550;
+    color:#696a6a ;
+}
+.right{
+    width: 448px ;
+    margin-left: 50px ;
+}
+.right h3{
+    margin: 100px 50px 20px 130px ;
+    font-size: 20px;
+}
+.right .text-vilid{
+    font-size: 13px;
+    font-style: italic;
+    color:#696a6a  ;
+    text-align: center;
+    margin: 5px 0;
+}
+.right .info input{
+    width: 428px ;
+}
+.right .info input{
+    height: 38px ;
+    border-radius: 10px;
+    border: 0.8px solid #ccc ;
+    background-color: #ccc ;
+    margin: 6px 0 ;
+    padding-left: 8px ;
+}
+.right .box-check{
+     display: flex ; 
+}
+form{
+    font-size: 13px;
+}
+.right .box-radio{
+   border: 0.8px solid #ccc ;
+   border-radius: 5px;
+   margin: 10px 20px 10px 0 ;
+   line-height: 48px ;
+   padding: 0 10px ;
+   width: 428px;
+}
+.right  label{
+    display: flex ; 
+}
+.right label input{
+    padding-right: 10px ;
+    font-size: 20px ;
+}
+.right .form{
+    margin: 10px 0 ;
+    width: 428px;
+}
+.right .form select{
+    height: 38px ;
+    border-radius: 10px;
+    border: 0.8px solid #ccc ;
+    background-color: #ccc ;
+    padding:0 8px ;
+    width: 210px ;
+}
+.right textarea{
+    width: 428px ;
+    height: 111.6px ;
+    border-radius: 10px;
+    border: 0.8px solid #ccc ;
+    background-color: #ccc ;
+    padding: 8px 0 0 8px ;
+}
+.check-voucher{
+    width: 428px ;
+    line-height: 50px;
+}
+.right input{
+   
+}
+.voucher {
+    display: flex; /* Sử dụng flexbox để sắp xếp các phần tử */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    padding: 10px; /* Khoảng cách bên trong */
+   
+  }
+  
+  .voucher input {
+    flex: 1; /* Chiếm hết phần còn lại */
+    border: none; /* Ẩn viền */
+    padding: 10px;
+    font-size: 13px;
+    background-color: #ccc; /* Màu nền */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .voucher button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+ .xacnhan button{
+    display: flex ;
+    align-content: center;
+    padding: 16px 30px ;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #175034;
+    color: white ;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 0.8px solid #175034 ;
+    margin: 20px 0 20px 100px ;
+ } 

@@ -1,0 +1,215 @@
+.bill_buy{
+    margin-top: 100px;
+    background-color: #F4F4F8;
+    display: flex;
+    padding: 30px;
+    /* khi phần tử muốn mở rộng có thể mở rộng được */
+    min-height: 100%;
+}
+.nav_bill{
+    height: 500px;
+    width: 300px;
+    background-color: #F4F4F8;
+    font-size: 20px;
+}
+.nav_bill_user{
+    display: flex;
+    justify-content: center;
+}
+.nav_bill_user img{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+.nav_bill_user_info{
+    display: flex;
+    align-items: center;
+}
+.nav_bill_user_info_p{
+    text-align: center;
+}
+.fix_info{
+    cursor: pointer;
+    transition: 0.6s;
+}
+.fix_info:hover{
+    color: rgb(6, 92, 6);
+    transform: scale(1.1);
+}
+.nav_bill_link{
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+.nav_bill_link a{
+    text-decoration: none;
+    margin-top: 10px;
+    color: black;
+    transition: 0.6s;
+}
+.nav_bill_link a:hover{
+    transform: scale(1.1);
+    color: rgb(6, 92, 6);
+}
+.content{
+    background-color: #F4F4F8;
+    margin-left: 50px ;
+    height: auto;
+    width: 100%;
+    flex-grow: 1;
+}
+.menu_link_content{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.menu_link_content li{
+    cursor: pointer;
+    transition: 0.6s;
+}
+.menu_link_content li:hover{
+    color: rgb(6, 92, 6);
+    transform: scale(1.1);
+}
+.content_search{
+    background-color: white;
+    height: 60px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.search_input{
+    border: none;
+    background-color: rgba(245, 245, 220, 0);
+    height: 40px;
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    outline: none;
+}
+.search_button{
+    background-color: white;
+    border: none;
+    margin-left: 20px;   
+    height: 35px;
+    width: 35px;
+}
+.search_icon{
+    border: none;
+    height: 35px;
+    width: 35px;
+    transition: 0.6s;
+    cursor: pointer;
+}
+.search_icon:hover{
+    transform: scale(1.2);
+}
+input{
+    font-size: 20px;
+}
+::placeholder{
+    font-size: large;
+}
+.content_bill_product{
+    margin:20px;
+    padding: 10px;
+    background-color: white;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+.content_cancel{
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+}
+.content_cancel p{
+    font-size: 20px;
+}
+.content_product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content_product_nav{
+    display: flex;
+    align-items: center;
+}
+.content_product_nav img{
+    height: 280px;
+    width: 250px;
+    margin: 10px;
+}
+.name_product{
+    font-size: 25px;
+}
+.type_product{
+    color: rgb(143, 141, 141);
+}
+.money{
+    padding-right:20px;
+    color: rgb(3, 72, 3);
+    font-size: 22px;
+    display: flex;
+    align-items: center; 
+}
+hr{
+    height: 1px;
+    background-color: black;
+}
+.content_total{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 20px;
+}
+.content_total_p{
+    font-size: 22px;
+}
+.money_total{
+    margin-left: 10px;
+    font-size: 30px;
+    color: rgb(3, 72, 3);
+}
+.content_info_cancel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin: 5px;
+}
+.content_button button{
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 5px;
+    transition: 0.8s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.content_button button:hover{
+    background-color: rgb(6, 92, 6);
+    transform: scale(1.1);
+}
+.content_button p{
+    font-size: 20px;
+}
+.content_button p:hover{
+    color: white;
+}

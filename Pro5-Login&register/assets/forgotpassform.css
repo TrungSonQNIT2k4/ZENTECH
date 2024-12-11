@@ -1,0 +1,99 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao toàn màn hình */
+    background-color: #ffffff; /* Màu nền tổng thể */
+}
+
+/* Form styling */
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    background-color: #dbeefdef; /* Màu nền xanh nhạt */
+    padding: 2rem;
+    border: 2px solid black; /* Viền màu đen */
+    border-radius: 12px; /* Bo góc form */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Bóng cho form */
+    max-width: 400px; /* Giới hạn chiều rộng form */
+    width: 100%;
+}
+
+/* Title styling */
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Input container */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-container input {
+    background-color: #fff;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-container input:focus {
+    border: 1px solid #007BFF; /* Đổi màu viền khi focus */
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: #007BFF; /* Màu nút */
+    color: #fff; /* Màu chữ */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Màu nút khi hover */
+    transform: scale(1.05); /* Hiệu ứng khi hover */
+}
+
+button:active {
+    transform: scale(0.98); /* Hiệu ứng khi click */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .form {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+}
