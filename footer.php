@@ -33,7 +33,7 @@
         </li>
     </ul>
     <ul class="footer-tool">
-        <li class="footer-tool-list"><a href=""><img src="/ZENTECH/Data/Image/LOGO.png" alt=""></a></li>
+        <li class="footer-tool-list"><a href="#" onclick="scrollToTop()"><img src="/ZENTECH/Data/Image/LOGO.png" alt=""></a></li>
         <li class="footer-tool-list">NGÂN HÀNG KẾT NỐI
             <div class="footer-tool-bank">
                 <div><a href=""><img src="/ZENTECH/Data/Image/momo.png" alt=""></a></div>

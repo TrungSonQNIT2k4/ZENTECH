@@ -10,6 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 </head>
 <body>
+<?php
+// Tạo một hàm kết nối cơ sở dữ liệu để sử dụng lại
+function connectDatabase() {
+    $conn = new mysqli("localhost", "root", "", "zentech");
+
+    // Kiểm tra kết nối
+    if ($conn->connect_error) {
+        die("Kết nối thất bại: " . $conn->connect_error);
+    }
+    return $conn;
+}
+?>
     <?php include 'headerA.php'; ?>
     <div class="container_show_item">
         <div class="menu_choose">
