@@ -1,0 +1,19 @@
+.content_detail_title{
+    font-size:18px;
+    text-align: left;
+    display: block;
+}
+.content_detail_reason{
+    font-size:18px;
+}
+.content_detail{
+    display: flex;
+    justify-content: left;
+}
+.title{
+    display: flex;
+    justify-content: right;
+}
+.title_require_time{
+    padding-left: 5px;
+}

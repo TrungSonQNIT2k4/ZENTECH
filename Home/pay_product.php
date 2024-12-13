@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>zentech.com/thanhtoan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/css/pay_product.css">
-    <link rel="stylesheet" href="/css/address_change.css">
-    <link rel="stylesheet" href="/css/payment_method.css">
+    <link rel="stylesheet" href="/ZENTECH/css/pay_product.css">
+    <link rel="stylesheet" href="/ZENTECH/css/address_change.css">
+    <link rel="stylesheet" href="/ZENTECH/css/payment_method.css">
+    <link rel="stylesheet" href="/ZENTECH/css/ship_unit.css">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -73,8 +74,8 @@
                         <textarea id="message" name="message" rows="2" cols="25" placeholder="Nhập lời nhắn của bạn"></textarea>
                     </td>
                     <td>Đơn vị vận chuyển:</td>
-                    <td><p><b>Vận Chuyển Nhanh</b><br><pre>    Standard Express</pre></p></td>
-                    <td><a href="">Thay đổi</a></td>
+                    <td><p><b>Vận Chuyển Nhanh</b><br><pre>Standard Express</pre></p></td>
+                    <td><button class="button_ship_popup" onclick="showShipPopup()">Thay đổi</button></td>
                     <td class="ship_money">đ30.000</td>
                 </tr>
 
@@ -157,7 +158,7 @@
                     </div>
             </div>
         </div>
-        <script src="/Javascript.js/payment_popup.js"></script>
+        <script src="/ZENTECH/Javascript.js/payment_popup.js"></script>
     </div>
 <div class="address_popup">
             <div class="info_popup">
@@ -226,8 +227,40 @@
                         <a href=""><button class="button_confirm"> Xác nhận</button></a>
                     </div>
             </div>
-        <script src="/Javascript.js/address_popup.js"></script>
+        <script src="/ZENTECH/Javascript.js/address_popup.js"></script>
     </div>
 </div>
+<div class="ship_popup">
+            <div class="ship_info_popup">
+            <div class="ship_in_popup">
+                <div class="info_title">
+                    <p class="ship_title">Đơn vị vận chuyển</p>
+                    <span class="close_button_ship">&times;</span>
+                </div>
+                    <div class="ship_choice">
+                        <input type="radio" name="choice_ship" id="choice_1" value="Giao Hàng Nhanh">
+                        <label for="choice_1" class="info_ship">
+                            <p>Giao Hàng Nhanh</p>
+                        </label >
+                    </div>
+                    <div class="ship_choice">
+                    <input type="radio" name="choice_ship" id="choice_2" value="J&T Express">
+                        <label for="choice_2" class="info_ship">
+                            <p>J&T Express</p>
+                        </label>
+                    </div>
+                    <div class="ship_choice">
+                        <input type="radio" name="choice_ship" id="choice_3" value="Giao Hàng Tiết Kiệm">
+                        <label for="choice_3" class="info_ship">
+                            <p>Giao Hàng Tiết Kiệm</p>
+                        </label >
+                    </div>
+                    <div class="button_popup">
+                        <a href=""><button class="button_cancel"> Hủy</button></a>
+                        <a href=""><button class="button_confirm"> Xác nhận</button></a>
+                    </div>
+                <script src="/ZENTECH/Javascript.js/ship_popup.js"></script>
+            </div>
+    </div>
 </body>
 </html>

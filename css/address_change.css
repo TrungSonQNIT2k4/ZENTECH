@@ -96,3 +96,7 @@
     display: flex;
     justify-content: right;
 }
+.close_button_address{
+    cursor: pointer;
+    color: rgb(4, 90, 4);
+}

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>zentech.com</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="/ZENTECH/css/order_detail_cancel.css">
+        <link rel="stylesheet" href="/ZENTECH/css/order_require_return.css">
         <link rel="stylesheet" href="/ZENTECH/css/order_all.css">
         <link rel="stylesheet" href="/ZENTECH/css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
@@ -31,8 +31,8 @@
            <div class="content">
                         <div class="content_bill_product">
                             <div class="title">
-                                <p class="title_cancel">Đã hủy đơn hàng</p>
-                                <p class="title_cancel_time">vào lúc 22:11 ngày 19/11/2024</p>
+                                <p class="title_require">Đã yêu cầu trả hàng/hoàn tiền </p>
+                                <p class="title_require_time"> vào lúc 22:11 ngày 19/11/2024</p>
                             </div>
                             <hr>
                         <div class="content_product">
@@ -51,12 +51,14 @@
                                     <div class="content_detail_title">
                                         <p class="require_title">Yêu cầu bởi:</p>
                                         <p class="choice_pay_title">Phương thức thanh toán:</p>
-                                        <p class="reason_cancel_title">Lý do:</p>
+                                        <p class="reason_require_title">Lý do:</p>
+                                        <p class="reason_require_title">Tình trạng:</p>
                                     </div>
                                     <div class="content_detail_reason">
                                     <p class="require_reason">Người mua</p>
                                     <p class="choice_pay_reason">Thanh toán khi nhận hàng</p>
-                                    <p class="reason_cancel_reason">Muốn thay đổi địa chỉ giao hàng</p>
+                                    <p class="reason_require_reason">Tôi đã nhận được hàng nhưng có vấn đề (bể vỡ, sai mẫu, hàng lỗi, khác mô tả...)</p>
+                                    <p>Đang xử lý yêu cầu, vui lòng cung cấp thêm thông tin, hình ảnh xác thực của sản phẩm</p>
                                     </div>
                                 </div>
                     </div>
