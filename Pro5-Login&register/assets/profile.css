@@ -17,11 +17,12 @@ body {
     grid-template-rows: auto;
     background-color: #fff;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 8px;
     max-width: 800px;
     margin: 0 auto;
     gap: 20px;
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img {
@@ -40,9 +41,14 @@ body {
 }
 
 .sidebar .user-info {
+    display: flex;
+    align-items: center;
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
+}
+.user-info img{
+    margin-right: 10px;
 }
 
 .sidebar ul {
@@ -109,6 +115,7 @@ body {
     display: flex;
     justify-content: center; /* Căn giữa nút button */
     margin-top: 20px; /* Tạo khoảng cách trên nút */
+    transition: 0.4s;
 }
 
 button {
@@ -125,7 +132,13 @@ button {
     text-transform: uppercase;
     border: none;
     cursor: pointer; /* Thay đổi con trỏ khi hover */
-    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Hiệu ứng chuyển đổi mượt */
+    transition: 0.3s
+}
+.button-container button:hover{
+    background-color: #0252a7;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    font-weight: bold;
 }
 
 button:active {
