@@ -78,3 +78,27 @@ tr.pay{
     text-decoration: underline;
     cursor: pointer;
 }
+.button_payment{
+    border: none;
+    color: rgb(5, 72, 5);
+    font-size: 30px;
+    background-color:#ebfdfa;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.button_address{
+    border: none;
+    color: rgb(5, 72, 5);
+    font-size: 30px;
+    background-color:#ebfdfa;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.button_ship_popup{
+    border: none;
+    font-size: 30px;
+    background-color: white;
+    text-decoration: underline;
+    color: rgb(10, 95, 10);
+    cursor: pointer;
+}
