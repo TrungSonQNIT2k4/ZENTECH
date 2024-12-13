@@ -212,12 +212,10 @@
     <li class="globalnav-tool-search">
         <img src="/ZENTECH/Data/Image/search.png" alt="Search Icon" class="icon">
         <div class="search_box">
-            <ul class="search">
-                <li>
+            <div class="search">
                     <input type="text" name="search" id="searchInput"
                         placeholder="Nhập thông tin bạn muốn tìm kiếm vào đây" class="search_input" autocomplete="off">
-                </li>
-            </ul>
+            </div>
         </div>
         <div class="relate_box" id="relateBox">
             <div class="show_product_relate" id="productSuggestions">

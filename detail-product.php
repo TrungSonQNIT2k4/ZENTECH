@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/assets/css/style.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="/ZENTECH/Data/Image/ICONLOGOZ.png" />
+    <link href="/ZENTECH/assets/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/ZENTECH/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <title> Điện thoại Redmi A2+ (3GB/64GB) </title>
 </head>
 <body>
+    <?php include 'headerA.php'; ?>
     <section>
      <div class="container">
         <ul class="breadcrum">
@@ -955,6 +958,7 @@
     
 </div>
 <section>
-<script src="/assets/js/script.js"></script>
+<?php include 'footer.php'; ?>
+<script src="/ZENTECH/assets/js/script.js"></script>
 </body>
 </html>
