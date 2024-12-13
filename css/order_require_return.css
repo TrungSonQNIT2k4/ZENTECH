@@ -5,6 +5,7 @@
 }
 .content_detail_reason{
     font-size:18px;
+    padding-left: 15px;
 }
 .content_detail{
     display: flex;

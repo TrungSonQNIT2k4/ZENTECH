@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>zentech.com/thanhtoan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/ZENTECH/css/pay_product.css">
-    <link rel="stylesheet" href="/ZENTECH/css/address_change.css">
-    <link rel="stylesheet" href="/ZENTECH/css/payment_method.css">
-    <link rel="stylesheet" href="/ZENTECH/css/ship_unit.css">
+    <link rel="stylesheet" href="/css/pay_product.css">
+    <link rel="stylesheet" href="/css/address_change.css">
+    <link rel="stylesheet" href="/css/payment_method.css">
+    <link rel="stylesheet" href="/css/ship_unit.css">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -158,7 +158,7 @@
                     </div>
             </div>
         </div>
-        <script src="/ZENTECH/Javascript.js/payment_popup.js"></script>
+        <script src="/Javascript.js/payment_popup.js"></script>
     </div>
 <div class="address_popup">
             <div class="info_popup">
@@ -227,7 +227,7 @@
                         <a href=""><button class="button_confirm"> Xác nhận</button></a>
                     </div>
             </div>
-        <script src="/ZENTECH/Javascript.js/address_popup.js"></script>
+        <script src="/Javascript.js/address_popup.js"></script>
     </div>
 </div>
 <div class="ship_popup">
@@ -259,7 +259,7 @@
                         <a href=""><button class="button_cancel"> Hủy</button></a>
                         <a href=""><button class="button_confirm"> Xác nhận</button></a>
                     </div>
-                <script src="/ZENTECH/Javascript.js/ship_popup.js"></script>
+                <script src="/Javascript.js/ship_popup.js"></script>
             </div>
     </div>
 </body>

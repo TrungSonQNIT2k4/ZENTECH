@@ -4,17 +4,17 @@
         <meta charset="UTF-8">
         <title>zentech.com</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="/ZENTECH/css/order_detail_cancel.css">
-        <link rel="stylesheet" href="/ZENTECH/css/order_all.css">
-        <link rel="stylesheet" href="/ZENTECH/css/style.css">
+        <link rel="stylesheet" href="/css/order_detail_cancel.css">
+        <link rel="stylesheet" href="/css/order_all.css">
+        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        <?php include ("/ZENTECH/ZENTECH/Home/header.php") ?>
+        <?php include ("/ZENTECH/Home/header.php") ?>
         <div class="bill_buy">
             <div class="nav_bill">
                 <div class="nav_bill_user">
-                    <img src="/ZENTECH/img/438260813_2424897214565883_274795963423845468_n.jpg" alt="hinh anh">
+                    <img src="/img/438260813_2424897214565883_274795963423845468_n.jpg" alt="hinh anh">
                     <div class="nav_bill_user_info">
                        <div class="nav_bill_user_info_p">
                            <p>baotranxsb</p>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="nav_bill_link">
                     <a href=""><i class="fa-regular fa-user"></i> Tài Khoản Của Tôi</a>
-                    <a href="/ZENTECH/Home/order_all.php"><i class="fa-solid fa-clipboard-list"></i> Đơn Mua</a>
+                    <a href="/Home/order_all.php"><i class="fa-solid fa-clipboard-list"></i> Đơn Mua</a>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                             <hr>
                         <div class="content_product">
                             <div class="content_product_nav">
-                                <img src="/ZENTECH/img/Screenshot 2024-11-28 153840.png" alt="dien thoai">
+                                <img src="/img/Screenshot 2024-11-28 153840.png" alt="dien thoai">
                                 <div class="content_product_info">
                                     <p class="name_product">Iphone 16 promax</p>
                                     <p class="type_product">Phân loại hàng: màu đen</p>
@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                     </div>
-        <?php include ("/ZENTECH/ZENTECH/Home/footer.php") ?>
+        <?php include ("/ZENTECH/Home/footer.php") ?>
         </div>
         </div>
     </body>

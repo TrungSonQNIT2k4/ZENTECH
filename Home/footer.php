@@ -28,17 +28,17 @@
             <li class="footer-menu-list">KẾT NỐI VỚI CHÚNG TÔI
                 <div class="footer-menu-contact">
                     <div><a href="https://www.facebook.com/profile.php?id=61566349226967" target="_blank"><img
-                                src="/ZENTECH/img/Image/facebook-logo.png" alt="Facebook"></a></div>
-                    <div><a href=""><img src="/ZENTECH/img/Image/gmailicon.png" alt="Gmail"></a></div>
+                                src="/img/Image/facebook-logo.png" alt="Facebook"></a></div>
+                    <div><a href=""><img src="/img/Image/gmailicon.png" alt="Gmail"></a></div>
                 </div>
             </li>
         </ul>
         <ul class="footer-tool">
-            <li class="footer-tool-list"><a href=""><img src="/ZENTECH/img/Image/LOGO.png" alt="Logo"></a></li>
+            <li class="footer-tool-list"><a href=""><img src="/img/Image/LOGO.png" alt="Logo"></a></li>
             <li class="footer-tool-list">NGÂN HÀNG KẾT NỐI
                 <div class="footer-tool-bank">
-                    <div><a href=""><img src="/ZENTECH/img/Image/momo.png" alt="Momo"></a></div>
-                    <div><a href=""><img src="/ZENTECH/img/Image/mb.png" alt="MB Bank"></a></div>
+                    <div><a href=""><img src="/img/Image/momo.png" alt="Momo"></a></div>
+                    <div><a href=""><img src="/img/Image/mb.png" alt="MB Bank"></a></div>
                 </div>
             </li>
         </ul>

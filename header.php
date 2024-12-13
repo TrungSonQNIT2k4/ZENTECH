@@ -1,9 +1,9 @@
 <div class="header">
     <div class="header_inner">
-        <a href="home.html"><img src="/ZENTECH/Data/Image/LOGO.png" alt="" class="header_logo"></a>
+        <a href="home.html"><img src="/Data/Image/LOGO.png" alt="" class="header_logo"></a>
         <ul id="globalnav-list" class="globalnav-list">
             <li class="menu_item">
-                <a href="/ZENTECH/showsp.php">
+                <a href="/showsp.php">
                     <p class="globalnav-list-content">iPhone</p>
                 </a>
                 <div class="menu_child">
@@ -133,10 +133,10 @@
         </ul>
         <ul id="globalnav-tool" class="globalnav-tool">
             <li class="globalnav-tool-content">
-                <img src="/ZENTECH/Data/Image/search.png" alt="" class="icon">
+                <img src="/Data/Image/search.png" alt="" class="icon">
             </li>
-            <li class="globalnav-tool-content"><img src="/ZENTECH/Data/Image/store.png" alt="" class="icon"></li>
-            <li class="globalnav-tool-content"><img src="/ZENTECH/Data/Image/login.png" alt="" class="icon"></li>
+            <li class="globalnav-tool-content"><img src="/Data/Image/store.png" alt="" class="icon"></li>
+            <li class="globalnav-tool-content"><img src="/Data/Image/login.png" alt="" class="icon"></li>
         </ul>
     </div>
 

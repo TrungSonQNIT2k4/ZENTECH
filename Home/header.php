@@ -1,7 +1,7 @@
 <header>
     <div class="header">
                 <div class="header_inner">
-                    <a href="home.php"><img src="/ZENTECH/img/Image/LOGO.png" alt="" class="header_logo"></a>
+                    <a href="home.php"><img src="/img/Image/LOGO.png" alt="" class="header_logo"></a>
                     <ul id="globalnav-list" class="globalnav-list">
                         <li class="menu_item">
                             <a href="">
@@ -134,10 +134,10 @@
                     </ul>
                     <ul id="globalnav-tool" class="globalnav-tool">
                         <li class="globalnav-tool-content">
-                            <img src="/ZENTECH/img/Image/search.png" alt="" class="icon">
+                            <img src="/img/Image/search.png" alt="" class="icon">
                         </li>
-                        <li class="globalnav-tool-content"><img src="/ZENTECH/img/Image/store.png" alt="" class="icon"></li>
-                        <li class="globalnav-tool-content"><img src="/ZENTECH/img/Image/login.png" alt="" class="icon"></li>
+                        <li class="globalnav-tool-content"><img src="/img/Image/store.png" alt="" class="icon"></li>
+                        <li class="globalnav-tool-content"><img src="/img/Image/login.png" alt="" class="icon"></li>
                     </ul>
                 </div>
             </div>
