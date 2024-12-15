@@ -166,7 +166,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #717171;
+    background: #525151;
     height: 70px;
     color: #fff;
     position: fixed;
@@ -180,6 +180,7 @@ a:hover{
 }
 .left-panel{
     float: left;
+    color: white;
 }
 .left-panel span{
     color: #eeff09;
@@ -336,13 +337,65 @@ a:hover{
     bottom: 3px;
     right: 0;
 }
-
+.container-login-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #dcecf2;
+}
 .box-content{
     margin: 0 auto;
-    width: 800px;
-    border: 1px solid #ccc;
+    width: 400px;
     text-align: center;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 8px rgba(0,0,0,0.3);
+    background-color: #f4f8f8;
+}
+.logo-login-admin{
+    height: 100px;
+    width: 180px;
+    margin-bottom: -35px;
+}
+.title-login{
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.search-input-login-admin{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+    outline: none;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.login-button-admin{
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 4px 5px rgba(0,0,0,0.3);
+    transition: 0.4s;
+}
+.login-button-admin:hover{
+    transform: scale(1.05);
+}
+.login-button-admin:active{
+    transform: scale(0.95); /* Làm nút nhỏ lại khi nhấn */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Giảm bóng khi nhấn */
+}
+.container-home-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #dcecf2;
 }
 ::-webkit-scrollbar {
     width: 12px;
