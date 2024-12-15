@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header_inner">
-        <a href="/index.php"><img src="/Data/Image/LOGO.png" alt="" class="header_logo"></a>
+        <a href="/ZENTECH/index.php"><img src="/ZENTECH/Data/Image/LOGO.png" alt="" class="header_logo"></a>
         <ul id="globalnav-list" class="globalnav-list">
             <li class="menu_item">
                 <a href="">
@@ -210,7 +210,7 @@
 </ul>
 <ul id="globalnav-tool" class="globalnav-tool">
     <li class="globalnav-tool-search">
-        <img src="/Data/Image/search.png" alt="Search Icon" class="icon">
+        <img src="/ZENTECH/Data/Image/search.png" alt="Search Icon" class="icon">
         <div class="search_box">
             <div class="search">
                     <input type="text" name="search" id="searchInput"
@@ -245,21 +245,22 @@
         });
     </script>
     <li class="globalnav-tool-content">
-        <img src="/Data/Image/store.png" alt="" class="icon">
+        <img src="/ZENTECH/Data/Image/store.png" alt="" class="icon">
     </li>
     <li class="globalnav-tool-content">
-        <img src="/Data/Image/ICONLOGOZ.png" alt="" class="icon">
-        <div class="setting_box">
-            <ul class="setting_properties">
-                <li><a href="">
-                        <p>Xem thông tin</p>
-                    </a></li>
-                <li><a href="">
-                        <p>Setting</p>
-                    </a></li>
-            </ul>
-        </div>
-    </li>
+    <img src="/ZENTECH/Data/Image/ICONLOGOZ.png" alt="" class="icon">
+    <div class="setting_box">
+        <ul class="setting_properties">
+            <li><a href="/ZENTECH/Pro5-Login&register/profile.php">
+                    <p>Xem thông tin</p>
+                </a></li>
+            <li><a href="">
+                    <p>Setting</p>
+                </a></li>
+        </ul>
+    </div>
+</li>
+
 </ul>
 </div>
 

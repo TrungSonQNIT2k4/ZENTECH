@@ -7,7 +7,10 @@ body {
     min-height: 100vh; /* Đảm bảo chiều cao tối thiểu là 100% */
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
 .main-content {
     flex-grow: 1; /* Cho phép nội dung chính chiếm phần còn lại */
     padding: 20px;

@@ -2,17 +2,23 @@
 <style type="text/css">
     /* Định dạng cho các liên kết */
     a {
-        color: blue; /* Màu mặc định cho liên kết */
-        text-decoration: none; /* Không gạch chân */
+        color: blue;
+        /* Màu mặc định cho liên kết */
+        text-decoration: none;
+        /* Không gạch chân */
     }
 
     a:visited {
-        color: blue; /* Màu khi đã truy cập */
+        color: blue;
+        /* Màu khi đã truy cập */
     }
 
-    a:hover, a:active {
-        color: #333; /* Giữ nguyên màu khi di chuột hoặc nhấn */
-        text-decoration: underline; /* Gạch chân khi hover */
+    a:hover,
+    a:active {
+        color: #333;
+        /* Giữ nguyên màu khi di chuột hoặc nhấn */
+        text-decoration: underline;
+        /* Gạch chân khi hover */
     }
 </style>
 
@@ -31,7 +37,7 @@ if (!empty($_SESSION['current_user'])) {
     $offset = ($current_page - 1) * $item_per_page;
 
     // Sử dụng Prepared Statement để lấy tổng số sản phẩm
-    $stmt = $con->prepare("SELECT COUNT(*) FROM `product`");
+    $stmt = $con->prepare("SELECT COUNT(*) FROM `products`");
     $stmt->execute();
     $stmt->bind_result($totalRecords);
     $stmt->fetch();
@@ -41,7 +47,7 @@ if (!empty($_SESSION['current_user'])) {
     $totalPages = ceil($totalRecords / $item_per_page);
 
     // Truy vấn các sản phẩm với phân trang
-    $stmt = $con->prepare("SELECT * FROM `product` ORDER BY `id` DESC LIMIT ? OFFSET ?");
+    $stmt = $con->prepare("SELECT * FROM `products` ORDER BY `id` ASC LIMIT ? OFFSET ?");
     $stmt->bind_param("ii", $item_per_page, $offset);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -49,53 +55,56 @@ if (!empty($_SESSION['current_user'])) {
     $products = $result->fetch_all(MYSQLI_ASSOC);
     $stmt->close();
 
-    ?>
-    <div class="main-content"> 
-        <h1>Danh sách sản phẩm</h1> 
+?>
+    <div class="main-content">
+        <h1>Danh sách sản phẩm</h1>
         <div class="product-items">
             <div class="buttons">
-                <a class="add_product" href="./product_editing.php">Thêm sản phẩm</a>
+                <button><a class="add_product" href="./product_editing.php">Thêm sản phẩm</a></button>
             </div>
             <ul>
-                <li class="product-item-heading"> 
-                    <div class="product-prop product-img">Ảnh</div> 
-                    <div class="product-prop product-name">Tên sản phẩm</div> 
-                    <div class="product-prop product-button">Xóa</div> 
-                    <div class="product-prop product-button">Sửa</div> 
-                    <div class="product-prop product-button">Copy</div> 
-                    <div class="product-prop product-time">Ngày tạo</div>
-                    <div class="product-prop product-time">Ngày cập nhật</div> 
+                <li class="product-item-heading">
+                    <div class="product-prop-header product-id">id</div>
+                    <div class="product-prop-header product-img">Ảnh</div>
+                    <div class="product-prop-header product-name">Tên sản phẩm</div>
+                    <div class="product-prop-header product-Price">Giá</div>
+                    <div class="product-prop-header product-time">Ngày tạo</div>
+                    <div class="product-prop-header product-time">Ngày cập nhật</div>
+                    <div class="product-button-title">Chức năng</div>
                     <div class="clear-both"></div>
                 </li>
                 <?php
                 // Lặp qua từng sản phẩm để hiển thị
                 foreach ($products as $row) {
-                    ?>
+                ?>
                     <li>
+                        <div class="product-prop product-id"><?= htmlspecialchars($row['id']) ?></div>
                         <div class="product-prop product-img">
-                            <img src="/Project_BanHangDienTu/img/<?= htmlspecialchars($row['img']) ?>" alt="<?= htmlspecialchars($row['name']) ?>" title="<?= htmlspecialchars($row['name']) ?>" />
+                            <img src="<?= htmlspecialchars($row['image_path']) ?>" alt="<?= htmlspecialchars($row['name']) ?>" title="<?= htmlspecialchars($row['name']) ?>" />
                         </div>
                         <div class="product-prop product-name"><?= htmlspecialchars($row['name']) ?></div>
-                        <div class="product-prop product-button">
-                            <a href="./product_delete.php?id=<?= htmlspecialchars($row['id']) ?>">Xóa</a>
-                        </div>
+                        <div class="product-prop product-price"><?= number_format($row["price"], 0, ',', '.') ?></div>
+                        <div class="product-prop product-time"><?= date($row['created_at']) ?></div>
+                        <div class="product-prop product-time"><?= date($row['updated_at']) ?></div>
                         <div class="product-prop product-button">
                             <a href="./product_editing.php?id=<?= htmlspecialchars($row['id']) ?>">Sửa</a>
                         </div>
                         <div class="product-prop product-button">
-                            <a href="./product_editing.php?id=<?= htmlspecialchars($row['id']) ?>&task=copy">Copy</a>
+                            <a href="./product_copy.php?id=<?= htmlspecialchars($row['id']) ?>">Copy</a>
                         </div>
-                        <div class="product-prop product-time"><?= date('d/m/Y H:i', $row['created_time']) ?></div>
-                        <div class="product-prop product-time"><?= date('d/m/Y H:i', $row['last_updated']) ?></div>
+
+                        <div class="product-prop product-button">
+                            <a href="./product_delete.php?id=<?= htmlspecialchars($row['id']) ?>">Xóa</a>
+                        </div>
                         <div class="clear-both"></div>
                     </li>
                 <?php } ?>
             </ul>
             <?php include './pagination.php'; ?>
-            <div class="clear-both"></div> 
+            <div class="clear-both"></div>
         </div>
     </div>
-    <?php
+<?php
 }
 include './footer.php';
 ?>

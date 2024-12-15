@@ -10,6 +10,7 @@
             padding: 10px 15px; /* Khoảng cách bên trong cho các phần tử phân trang */
             margin: 0 5px; /* Khoảng cách giữa các phần tử phân trang */
             border: 1px solid #ccc; /* Đường viền cho các phần tử phân trang */
+            border-radius: 10px;
             text-decoration: none; /* Xóa gạch chân cho liên kết */
             color: #333;
         }

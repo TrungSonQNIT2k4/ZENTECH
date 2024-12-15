@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 body {
     margin: 0;
+=======
+.profile-container {
+    font-family: Arial, sans-serif;
+>>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
     display: flex;
+    margin: 0;
 }
 
 .main-container {
@@ -34,12 +40,17 @@ body {
 }
 
 .sidebar {
+    height: 90vh;
     width: 20%;
     background-color: #f4f4f4;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
+<<<<<<< HEAD
     height: 95vh;
+=======
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
+    margin-right: 100px;
+>>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
 }
 
 .sidebar .user-info {
@@ -50,7 +61,7 @@ body {
     margin-bottom: 10px;
 }
 .user-info img{
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .sidebar ul {
@@ -65,6 +76,7 @@ body {
 .sidebar ul li a {
     text-decoration: none;
     color: #333;
+    font-weight: bold;
 }
 
 .sidebar ul li a:hover {

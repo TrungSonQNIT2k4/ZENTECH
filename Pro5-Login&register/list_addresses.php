@@ -23,7 +23,10 @@ $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Pro5-Login&register/assets/list_addresses.css">
     <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/order_all.css">
+=======
+>>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
     <title>Danh Sách Địa Chỉ</title>
 </head>
 <body>
