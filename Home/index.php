@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php';
+require 'connect_db.php';
 
 // Kiểm tra người dùng đã đăng nhập
 if (!isset($_SESSION['user_id'])) {
@@ -32,8 +32,6 @@ $email = $user['email'] ?? 'Chưa có thông tin';
 $phone = $user['phone'] ?? 'Chưa có thông tin';
 $address = $user['address'] ?? 'Chưa có thông tin';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,14 +39,17 @@ $address = $user['address'] ?? 'Chưa có thông tin';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
     <link rel="stylesheet" href="/css/order_all.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <title>Hồ Sơ</title>
 </head>
 <body>
+<?php include ("/ZENTECH/headerA.php") ?>
     <?php include 'templates/sidebar.php'; ?>
     
     <section class="main-content">
         <!-- Hiển thị thông báo nếu có -->
-        <h1 class="tiltle">Hồ Sơ</h1>
+        <h1 class="title">Hồ Sơ</h1>
         
         <form method="POST" action="edit_profile.php" class="form" enctype="multipart/form-data">
             <div class="just-form">
@@ -83,9 +84,8 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                     <button type="submit">Cập Nhật</button>
                 </div>
             </div>
-
         </form>
-
+        <?php include ("/ZENTECH/Home/footer.php") ?>
     </section>
 </body>
 </html>

@@ -7,4 +7,3 @@ try {
     die("Kết nối CSDL thất bại: " . $e->getMessage());
 }
 ?>
-    

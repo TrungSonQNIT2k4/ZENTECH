@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php';
+require 'connect_db.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -63,10 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/order_all.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Thay Đổi Mật Khẩu</title>
 </head>
 <body>
+<?php include ("/ZENTECH/headerA.php") ?>
     <?php include 'templates/sidebar.php'; ?>
 
     <section class="main-content">
@@ -105,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </form>
+        <?php include ("/ZENTECH/Home/footer.php") ?>
     </section>
 </body>
 </html>

@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "zentech_db";
+$database = "zentech";
 $con = mysqli_connect($host, $user, $password, $database);
 
 if (mysqli_connect_errno()){// Kiểm tra nếu kết nối thất bại

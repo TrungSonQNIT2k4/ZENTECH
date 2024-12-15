@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'connect_db.php';
 
 // Lấy thông tin người dùng từ CSDL
 $user_id = $_SESSION['user_id'];
@@ -18,18 +18,18 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
         
         <div class="nav_bill_user_info_p">
             <p><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']); ?></p>
-            <p class="fix_info"><i class="fa-solid fa-pen"></i> Sửa hồ sơ</p>
+            <a href="/Home/index.php"><p class="fix_info"> Sửa hồ sơ</p></a>
         </div>
     </div>
     <hr>
     <ul>
         <div class="nav_bill_link">
-            <a href="index.php">Hồ sơ</a>
-            <a href="add_address.php">Thêm Địa chỉ</a>
-            <a href="list_addresses.php">Danh sách Địa chỉ</a>
-            <a href="change_password.php">Đổi mật khẩu</a>
-            <a href="logout.php">Đăng xuất</a>
-            <a href="/Home/order_all.php">Đơn Mua</a>
+            <a href="/Home/index.php">Hồ sơ</a>
+            <a href="/Home/add_address.php">Thêm Địa chỉ</a>
+            <a href="/Home/list_addresses.php">Danh sách Địa chỉ</a>
+            <a href="/Home/change_password.php">Đổi mật khẩu</a>
+            <a href="/Home/logout.php">Đăng xuất</a>
+            <a href="/Home/order_all.php"> Đơn Mua</a>
         </div>
     </ul>
 </div>

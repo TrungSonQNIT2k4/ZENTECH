@@ -1,32 +1,54 @@
+<?php
+session_start();
+require 'connect_db.php';
+
+// Kiểm tra người dùng đã đăng nhập
+if (!isset($_SESSION['user_id'])) {
+    header("/Pro5-Login&register/login.php");
+    exit;
+}
+
+// Bật chế độ lỗi PDO
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Lấy thông tin người dùng từ CSDL
+$user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare("SELECT firstname, lastname, email, phone, address FROM users WHERE id = :id");
+$stmt->execute(['id' => $user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    echo "Không tìm thấy thông tin người dùng.";
+    exit;
+}
+
+// Debug dữ liệu người dùng
+// echo '<pre>'; print_r($user); echo '</pre>'; exit;
+
+// Xử lý giá trị mặc định
+$firstname = $user['firstname'] ?? 'Chưa có thông tin';
+$lastname = $user['lastname'] ?? 'Chưa có thông tin';
+$email = $user['email'] ?? 'Chưa có thông tin';
+$phone = $user['phone'] ?? 'Chưa có thông tin';
+$address = $user['address'] ?? 'Chưa có thông tin';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>zentech.com/donmua</title>
+    <title>zentech.com</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/order_all.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/css/order_return.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php include ("/ZENTECH/Home/header.php") ?>
-        <div class="bill_buy">
-            <div class="nav_bill">
-                <div class="nav_bill_user">
-                    <img src="/img/438260813_2424897214565883_274795963423845468_n.jpg" alt="hinh anh">
-                    <div class="nav_bill_user_info">
-                       <div class="nav_bill_user_info_p">
-                           <p>baotranxsb</p>
-                           <p class="fix_info"><i class="fa-solid fa-pen"></i> Sửa hồ sơ</p>
-                       </div>
-                    </div>
-                </div>
-                <div class="nav_bill_link">
-                    <a href=""><i class="fa-regular fa-user"></i> Tài Khoản Của Tôi</a>
-                    <a href="/Home/order_all.php"><i class="fa-solid fa-clipboard-list"></i> Đơn Mua</a>
-                </div>
-            </div>
+<?php include ("/ZENTECH/headerA.php") ?>
+        <?php include 'templates/sidebar.php'; ?>
             <div class="content">
                 <div class="menu_link">
                     <ul class="menu_link_content">
@@ -247,11 +269,13 @@
                             <span class="close_button">&times;</span>
                         </div>
                         <li><button>
-                                <p class="reason_choice">Tôi đã nhận được hàng nhưng có vấn đề (bể vỡ, sai mẫu, hàng lỗi, khác mô tả...)-Miễn ship hoàn về</p>
+                                <a href="/Home/order_detail_return.php"><p class="reason_choice">Tôi đã nhận được hàng nhưng có vấn đề (bể vỡ, sai mẫu, hàng lỗi, khác mô tả...)-Miễn ship hoàn về</p></a>
                             </button></li>
                         <li><button>
-                                <p class="reason_choice">Tôi chưa nhận hàng/nhận thiếu hàng</p>
-                                <p class="note">Lưu ý: Trong trường hợp yêu cầu Trả hàng/Hoàn tiền của bạn được chấp nhận, Phí vận chuyển có thể không được hoàn lại </p>
+                                <a href="/Home/order_detail_return.php">
+                                    <p class="reason_choice">Tôi chưa nhận hàng/nhận thiếu hàng</p>
+                                    <p class="note">Lưu ý: Trong trường hợp yêu cầu Trả hàng/Hoàn tiền của bạn được chấp nhận, Phí vận chuyển có thể không được hoàn lại </p>
+                                </a>
                             </button></li>
                     </ul>
                 </div>

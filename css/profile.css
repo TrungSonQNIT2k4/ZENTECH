@@ -6,9 +6,7 @@ body {
 .main-container {
     padding-left: 20px;
 }
-.main-content{
-    font-family: 'Francois One', sans-serif;
-}
+
 .form {
     display: block;
 }
@@ -35,11 +33,10 @@ body {
 
 .sidebar {
     width: 20%;
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    height: 95vh;
+    height: auto;
 }
 
 .sidebar .user-info {
@@ -48,6 +45,7 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: 130px;
 }
 .user-info img{
     margin-right: 10px;
@@ -120,22 +118,6 @@ body {
     transition: 0.4s;
 }
 
-button {
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color: #3f3e3fea;
-    color: #ffffff;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
-    width: 100%;
-    max-width: 300px; /* Giới hạn chiều rộng tối đa */
-    border-radius: 0.5rem;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer; /* Thay đổi con trỏ khi hover */
-    transition: 0.3s
-}
 .button-container button:hover{
     background-color: #0252a7;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
@@ -156,4 +138,6 @@ button:active {
         grid-column: span 1;
     }
 }
-  
+.main-content{
+    margin-top: 130px;
+}

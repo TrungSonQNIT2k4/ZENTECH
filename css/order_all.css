@@ -33,6 +33,10 @@
     cursor: pointer;
     transition: 0.6s;
 }
+.nav_bill_user_info_p a{
+    text-decoration: none;
+    color: black;
+}
 .fix_info:hover{
     color: rgb(6, 92, 6);
     transform: scale(1.1);
@@ -53,6 +57,7 @@
     color: rgb(6, 92, 6);
 }
 .content{
+    margin-top: 130px;
     background-color: #F4F4F8;
     margin-left: 50px ;
     height: auto;

@@ -7,14 +7,6 @@ body {
     min-height: 100vh; /* Đảm bảo chiều cao tối thiểu là 100% */
 }
 
-.sidebar {
-    width: 20%;
-    background-color: #f4f4f4;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    flex-shrink: 0; /* Ngăn sidebar co lại */
-}
 
 .main-content {
     flex-grow: 1; /* Cho phép nội dung chính chiếm phần còn lại */
@@ -61,7 +53,9 @@ h1 {
 
 /* Các địa chỉ */
 .addresses-container {
-    display: grid;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }

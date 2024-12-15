@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+require 'connect_db.php';
 session_start();
 
 // Kiểm tra nếu người dùng chưa đăng nhập
@@ -81,10 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/order_all.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Thêm Địa Chỉ</title>
 </head>
 <body>
+<?php include ("/ZENTECH/headerA.php") ?>
 <?php include 'templates/sidebar.php'; ?>
 
     <section class="main-content">
@@ -138,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <a href="index.php">Trở Lại</a>
         </form>
+        <?php include ("/ZENTECH/Home/footer.php") ?>
     </section>
 </body>
 </html>
