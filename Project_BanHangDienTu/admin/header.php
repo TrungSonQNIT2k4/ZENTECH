@@ -18,7 +18,7 @@
             <div id="admin-heading-panel"> <!-- Phần đầu trang quản trị -->
                 <div class="header-admin">
                     <div class="left-panel">
-                        Xin chào <span>Admin</span> <!-- Hiển thị tên người dùng -->
+                        Xin chào<span>Admin</span> <!-- Hiển thị tên người dùng -->
                     </div>
                     <div class="right-panel">
                         <img height="24" src="../icon/home.png" /> <!-- Biểu tượng trang chủ -->
