@@ -4,6 +4,7 @@
         <title>Admin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/ZENTECH/Data/Image/ICONLOGOZ.png">
         <link rel="stylesheet" type="text/css" href="../css/admin_style.css" > <!-- Kết nối file CSS cho giao diện admin -->
         <script src="../resources/ckeditor/ckeditor.js"></script> <!-- Kết nối CKEditor cho soạn thảo nội dung -->
     </head>
@@ -15,7 +16,7 @@
         if (!empty($_SESSION['current_user'])) { // Kiểm tra xem đã đăng nhập chưa?
             ?>
             <div id="admin-heading-panel"> <!-- Phần đầu trang quản trị -->
-                <div class="container">
+                <div class="header-admin">
                     <div class="left-panel">
                         Xin chào <span>Admin</span> <!-- Hiển thị tên người dùng -->
                     </div>
@@ -28,7 +29,7 @@
                 </div>
             </div>
             <div id="content-wrapper"> <!-- Bắt đầu phần nội dung chính -->
-                <div class="container">
+                <div class="container-admin">
                     <div class="left-menu"> <!-- Menu bên trái -->
                         <div class="menu-heading">Admin Menu</div> <!-- Tiêu đề menu -->
                         <div class="menu-items">

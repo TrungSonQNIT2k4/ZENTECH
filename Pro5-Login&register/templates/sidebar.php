@@ -8,7 +8,7 @@ $stmt->execute(['id' => $user_id]);
 $user = $stmt->fetch();
 
 // Kiểm tra xem người dùng có ảnh đại diện không
-$profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $user['profile_image']) ? 'uploads/' . $user['profile_image'] : 'uploads/default.jpg'; // Kiểm tra xem ảnh có tồn tại không
+$profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $user['profile_image']) ? 'uploads/' . $user['profile_image'] : '/ZENTECH/Data/Image/ICONLOGOZ.png'; // Kiểm tra xem ảnh có tồn tại không
 ?>
 
 <div class="sidebar">
@@ -20,7 +20,8 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
     </div>
     <hr>
     <ul>
-        <li><a href="index.php">Hồ sơ</a></li>
+        <li><a href="/ZENTECH/indexA.php">Trang chủ</a></li>
+        <li><a href="profile.php">Hồ sơ</a></li>
         <li><a href="add_address.php">Thêm Địa chỉ</a></li>
         <li><a href="list_addresses.php">Danh sách Địa chỉ</a></li>
         <li><a href="change_password.php">Đổi mật khẩu</a></li>

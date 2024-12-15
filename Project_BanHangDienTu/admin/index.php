@@ -3,7 +3,8 @@
         <title>Admin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/admin_style.css">
+        <link rel="icon" href="/ZENTECH/Data/Image/ICONLOGOZ.png">
+        <link rel="stylesheet" href="/ZENTECH/Project_BanHangDienTu/css/admin_style.css">
         <style>
             .box-content{
                 margin: 0 auto; /* Căn giữa nội dung */

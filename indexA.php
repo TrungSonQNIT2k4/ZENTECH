@@ -16,7 +16,7 @@ include 'database_connect.php'
 ?>
 
 <?php
-include 'header.php';
+include 'headerA.php';
 ?>
 
 <?php

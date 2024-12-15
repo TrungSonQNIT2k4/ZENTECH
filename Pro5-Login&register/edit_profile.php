@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Hiển thị thông báo thành công và quay lại trang hồ sơ
-        echo "<script>alert('Cập nhật thông tin thành công!'); window.location='index.php';</script>";
+        echo "<script>alert('Cập nhật thông tin thành công!'); window.location='profile.php';</script>";
         exit;
 
     } catch (PDOException $e) {

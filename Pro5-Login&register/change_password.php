@@ -66,44 +66,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Thay Đổi Mật Khẩu</title>
 </head>
 <body>
-    <?php include 'templates/sidebar.php'; ?>
-
-    <section class="main-content">
-        <h1>Thay Đổi Mật Khẩu</h1>
-
-        <!-- Hiển thị thông báo lỗi hoặc thành công -->
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="error-message">
-                <?= $_SESSION['error']; ?>
-            </div>
-            <?php unset($_SESSION['error']); ?>
-        <?php elseif (isset($_SESSION['message'])): ?>
-            <div class="success-message">
-                <?= $_SESSION['message']; ?>
-            </div>
-            <?php unset($_SESSION['message']); ?>
-        <?php endif; ?>
-
-        <form method="POST" action="change_password.php" class="form">
-            <div class="input-container">
-                <label>Mật khẩu cũ:</label>
-                <input type="password" name="old_password" required><br>
-            </div>
-            <div class="input-container">
-                <label>Mật khẩu mới:</label>
-                <input type="password" name="new_password" required><br>
-            </div>
-            <div class="input-container">
-                <label>Xác nhận mật khẩu mới:</label>
-                <input type="password" name="confirm_password" required><br>
-            </div>
-
-            <div class="full-width">
-                <div class="button-container">
-                    <button type="submit">Cập Nhật Mật Khẩu</button>
+    <div class="profile-container">
+        <?php include 'templates/sidebar.php'; ?>
+    
+        <section class="main-content">
+            <h1>Thay Đổi Mật Khẩu</h1>
+    
+            <!-- Hiển thị thông báo lỗi hoặc thành công -->
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="error-message">
+                    <?= $_SESSION['error']; ?>
                 </div>
-            </div>
-        </form>
-    </section>
+                <?php unset($_SESSION['error']); ?>
+            <?php elseif (isset($_SESSION['message'])): ?>
+                <div class="success-message">
+                    <?= $_SESSION['message']; ?>
+                </div>
+                <?php unset($_SESSION['message']); ?>
+            <?php endif; ?>
+    
+            <form method="POST" action="change_password.php" class="form">
+                <div class="input-container">
+                    <label>Mật khẩu cũ:</label>
+                    <input type="password" name="old_password" required><br>
+                </div>
+                <div class="input-container">
+                    <label>Mật khẩu mới:</label>
+                    <input type="password" name="new_password" required><br>
+                </div>
+                <div class="input-container">
+                    <label>Xác nhận mật khẩu mới:</label>
+                    <input type="password" name="confirm_password" required><br>
+                </div>
+    
+                <div class="full-width">
+                    <div class="button-container">
+                        <button type="submit">Cập Nhật Mật Khẩu</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 </html>

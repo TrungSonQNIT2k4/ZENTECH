@@ -32,7 +32,7 @@ function login() {
     // Kiểm tra mật khẩu và thông báo nếu sai
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id']; // Đồng nhất key
-        header("Location: ../index.php");
+        header("Location: /ZENTECH/indexA.php");
         exit; // Ngăn mã tiếp tục chạy
     } else {
         echo "<script>alert('Sai mật khẩu hoặc email.'); window.location='../login.php';</script>";
@@ -75,6 +75,6 @@ function register() {
         'password' => $hashedPassword
     ]);
 
-    header("Location: ../index.php");
+    header("Location: ../login.php");
 }
 ?>
