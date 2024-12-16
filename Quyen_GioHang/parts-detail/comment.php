@@ -50,7 +50,7 @@ $total_pages = ceil($total_comments / $comments_per_page);
 ?>
 
 <section> 
-  <div class="container">
+  <div class="main-container">
       <div class="box-comment">
           <div class="comment">
               <h3 class="title-info">
