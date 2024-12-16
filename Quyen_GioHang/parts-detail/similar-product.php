@@ -45,7 +45,7 @@ if ($result_similar === false) {
 ?>
 
 <section>
-    <div class="container">
+    <div class="main-container">
         <div class="list-product-similar">
             <div class="title-box">
                 Sản phẩm cùng tầm giá - cấu hình khủng
