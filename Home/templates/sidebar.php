@@ -8,7 +8,7 @@ $stmt->execute(['id' => $user_id]);
 $user = $stmt->fetch();
 
 // Kiểm tra xem người dùng có ảnh đại diện không
-$profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $user['profile_image']) ? 'uploads/' . $user['profile_image'] : 'uploads/default.jpg'; // Kiểm tra xem ảnh có tồn tại không
+$profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $user['profile_image']) ? 'uploads/' . $user['profile_image'] : '/ZENTECH/Data/Image/ICONLOGOZ.png'; // Kiểm tra xem ảnh có tồn tại không
 ?>
 
 <div class="sidebar">
@@ -18,18 +18,17 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
         
         <div class="nav_bill_user_info_p">
             <p><?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']); ?></p>
-            <a href="/Home/index.php"><p class="fix_info"> Sửa hồ sơ</p></a>
+            <p class="fix_info"><i class="fa-solid fa-pen"></i> Sửa hồ sơ</p>
         </div>
     </div>
     <hr>
-    <ul>
-        <div class="nav_bill_link">
-            <a href="/Home/index.php">Hồ sơ</a>
-            <a href="/Home/add_address.php">Thêm Địa chỉ</a>
-            <a href="/Home/list_addresses.php">Danh sách Địa chỉ</a>
-            <a href="/Home/change_password.php">Đổi mật khẩu</a>
-            <a href="/Home/logout.php">Đăng xuất</a>
-            <a href="/Home/order_all.php"> Đơn Mua</a>
-        </div>
+    <ul class="nav_bill_link">
+        <li><a href="/ZENTECH/indexA.php">Trang chủ</a></li>
+        <li><a href="profile.php">Hồ sơ</a></li>
+        <li><a href="add_address.php">Thêm Địa chỉ</a></li>
+        <li><a href="list_addresses.php">Danh sách Địa chỉ</a></li>
+        <li><a href="change_password.php">Đổi mật khẩu</a></li>
+        <li><a href="/ZENTECH/Home/order_all.php">Đơn Mua</a></li>
+        <li><a href="logout.php">Đăng xuất</a></li>
     </ul>
 </div>

@@ -28,7 +28,7 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
         <li><a href="add_address.php">Thêm Địa chỉ</a></li>
         <li><a href="list_addresses.php">Danh sách Địa chỉ</a></li>
         <li><a href="change_password.php">Đổi mật khẩu</a></li>
-        <li><a href="/ZENTECH/Home/order_all.php">Đơn Mua</a></li>
+        <li><a href="order_all.php">Đơn Mua</a></li>
         <li><a href="logout.php">Đăng xuất</a></li>
     </ul>
 </div>

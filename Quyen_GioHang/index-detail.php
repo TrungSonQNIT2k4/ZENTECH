@@ -24,7 +24,7 @@ if ($product_id) {
     <title>Zentech - <?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?></title>
 </head>
 <body  onload="loaded()" >
-<?php include($_SERVER['DOCUMENT_ROOT'].'/ZENTECH/headerA.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'../ZENTECH/headerA.php');?>
 <div class="main-index-detail">
     <?php include('parts-detail/title.php') ;?>
         <?php 

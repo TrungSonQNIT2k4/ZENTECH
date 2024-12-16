@@ -3,7 +3,9 @@
 require 'db.php';  // Chắc chắn rằng tệp db.php chứa kết nối PDO
 
 // Lấy thông tin người dùng từ CSDL (bạn cần có session user_id trước đó)
-session_start(); // Bắt đầu session nếu chưa
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} // Bắt đầu session nếu chưa
 $user_id = $_SESSION['user_id'];  // Lấy user_id từ session
 
 // Truy vấn thông tin người dùng từ cơ sở dữ liệu

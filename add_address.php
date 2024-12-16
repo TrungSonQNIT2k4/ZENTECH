@@ -80,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../ZENTECH/assets-K/chang_adress.css">
-    <link rel="stylesheet" href="../ZENTECH/css/order_all.css">
+    <link rel="stylesheet" href="/ZENTECH/assets-K/chang_adress.css">
+
     <title>Thêm Địa Chỉ</title>
 </head>
 <body>

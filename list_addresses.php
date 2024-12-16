@@ -23,7 +23,7 @@ $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ZENTECH/assets-K/list_addresses.css">
     <link rel="stylesheet" href="../ZENTECH/assets-K/profile.css">
-    <link rel="stylesheet" href="../ZENTECH/css/order_all.css">
+
     <title>Danh Sách Địa Chỉ</title>
 </head>
 <body>
