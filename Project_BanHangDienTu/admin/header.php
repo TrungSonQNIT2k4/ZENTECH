@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-panel">
                         <img height="24" src="../icon/home.png" /> <!-- Biểu tượng trang chủ -->
-                        <a href="../admin/index.php">Trang chủ</a> <!-- Liên kết đến trang chủ admin -->
+                        <a href="../admin/home_admin.php">Trang chủ</a> <!-- Liên kết đến trang chủ admin -->
                         <img height="24" src="../icon/logout.png" /> <!-- Biểu tượng đăng xuất -->
                         <a href="logout.php">Đăng xuất</a> <!-- Liên kết đăng xuất -->
                     </div>

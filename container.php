@@ -53,9 +53,12 @@
                     if ($count < 4) {
                         echo '<li class="product-item">
                         <button>
-                            <img src="' . $row["image_path"] . '" alt="">
-                            <p>' . $row["name"] . '</p>
-                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                <img src="' . $row["image_path"] . '" alt="">
+                                <p>' . $row["name"] . '</p>
+                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                                
+                            </a>
                         </button>
                       </li>';
                     }
@@ -65,9 +68,12 @@
                         if ($count == 4) echo '</ul><ul class="product-items">'; // Đóng dòng trước đó và mở dòng mới
                         echo '<li class="product-item">
                         <button>
-                            <img src="' . $row["image_path"] . '" alt="">
-                            <p>' . $row["name"] . '</p>
-                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                <img src="' . $row["image_path"] . '" alt="">
+                                <p>' . $row["name"] . '</p>
+                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                                
+                            </a>
                         </button>
                       </li>';
                     }
@@ -91,9 +97,11 @@
                         if ($count == 7) echo '</ul><ul class="product-items">'; // Đóng dòng trước đó và mở dòng mới
                         echo '<li class="product-item">
                         <button>
-                            <img src="' . $row["image_path"] . '" alt="">
-                            <p>' . $row["name"] . '</p>
-                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                <img src="' . $row["image_path"] . '" alt="">
+                                <p>' . $row["name"] . '</p>
+                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            </a>
                         </button>
                       </li>';
                     }
@@ -118,9 +126,12 @@
                     if ($count >= 12 && $count < 14) {
                         echo '<li class="product-item">
                         <button>
-                            <img src="' . $row["image_path"] . '" alt="">
-                            <p>' . $row["name"] . '</p>
-                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                <img src="' . $row["image_path"] . '" alt="">
+                                <p>' . $row["name"] . '</p>
+                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                                
+                            </a>
                         </button>
                       </li>';
                     }
@@ -144,11 +155,11 @@
         <?php
         // Định nghĩa các truy vấn và điều kiện
         $categories = [
-            ['name' => 'APPLE', 'condition' => 'id > 100 AND id < 200'],
-            ['name' => 'Samsung', 'condition' => 'id > 200 AND id < 300'],
-            ['name' => 'Xiaomi', 'condition' => 'id > 300 AND id < 400'],
-            ['name' => 'Oppo', 'condition' => 'id > 400 AND id < 500'],
-            ['name' => 'Phụ kiện', 'condition' => 'id > 500 AND id < 600']
+            ['name' => 'APPLE', 'condition' => 'product_id > 100 AND product_id < 200'],
+            ['name' => 'Samsung', 'condition' => 'product_id > 200 AND product_id < 300'],
+            ['name' => 'Xiaomi', 'condition' => 'product_id > 300 AND product_id < 400'],
+            ['name' => 'Oppo', 'condition' => 'product_id > 400 AND product_id < 500'],
+            ['name' => 'Phụ kiện', 'condition' => 'product_id > 500 AND product_id < 600']
         ];
 
         foreach ($categories as $category) {
@@ -170,9 +181,11 @@
                 while ($row = $result->fetch_assoc()) {
                     echo '<li class="product-item">
                             <button>
-                                <img src="' . $row["image_path"] . '" alt="">
-                                <p>' . $row["name"] . '</p>
-                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                                <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                    <img src="' . $row["image_path"] . '" alt=""/>
+                                    <p>' . $row["name"] . '</p>
+                                    <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                                </a>
                             </button>
                           </li>';
                 }

@@ -13,9 +13,12 @@ background-color:#f4f4f4  ;
 .text-white{
     color:aliceblue !important ;
 }
+.main-index-detail{
+    width: 98%;
+}
 .container{
 display: inline-block;    
-margin: 0 10%;
+margin-left: 10%;
 }
 .container .breadcrum{
     padding: 16px 0;
@@ -26,7 +29,6 @@ margin: 0 10%;
   font-weight: 600;
   font-size: 13px;
   width: auto;
-  line-height: 28px;
   height: 28px;
   border: 1px solid #000;
   text-align: center;
@@ -376,10 +378,11 @@ cursor: pointer ;
     padding: 0 5px ;  
 }
 .top-detail .price-normal{
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: bold;
     padding-top: 4px;
-    padding-left: 4px;
-    text-decoration: line-through;
+    text-decoration: none;
+    color: red;
 }
 .top-detail div:last-child{
   padding: 0 20px ;
@@ -702,17 +705,6 @@ color:#ed5555 ;
 .specifications-box .box-description .text{
     text-align: left ;
 }
-
-
-
-
-
-
-
-
-
-
-
 /* thong tin ca chung */
 .list-product-similar{
     background-color: white ;
@@ -737,23 +729,33 @@ color:#ed5555 ;
 }
 .list-product-similar .list-products{
     display: flex ;
-    transition: transform 0.5s ease-in-out;
     align-items: center ;
     justify-content: center ;
+    height: 350px;
 }
-.list-product-similar .box-product-similar .box-product{
-    width: 230px ;
+.box-product-similar{
+    width: 1200px;
+}
+.box-product{
+    width: 220px ;
     flex: 0 0 230px;
-    height: 360px;
+    height: 300px;
     background-color: white;
     margin: 10px 0 ;
     margin-right: 10px;
     border-radius: 10px;
-    border: 1px solid #ccc ;
     font-size: 14px;
     font-weight: 600;
-    text-align: center;
-    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box-product:hover{
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .product-similar{
     display: flex ;
@@ -761,8 +763,9 @@ color:#ed5555 ;
     justify-content: center ;
 }
 .list-product-similar .box-product img{
-    width: 250px;
-    height: 250px ;
+    width: 200px;
+    height: 200px ;
+    margin-bottom: 10px;
     line-height: 200px;
 }
 .list-product-similar .price{
@@ -772,8 +775,8 @@ color:#ed5555 ;
     color:#ed5555 ;
 }
 .list-product-similar .price .price-normal{
-    text-decoration: line-through;
-    color: #ccc ;
+    text-decoration: none;
+    color: red ;
 }
 .list-product-similar .name-product{
     
@@ -900,9 +903,9 @@ color:#ed5555 ;
     margin-right: 5px;
 }
 .list-product-compare .price .price-normal{
-    color: #ccc ;
+    color: red ;
     font-size: 12px;
-    text-decoration: line-through;
+    text-decoration: none;
     line-height: 13px;
     font-weight: 500 ;
 }

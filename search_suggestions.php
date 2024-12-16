@@ -38,13 +38,15 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="product_relate">
-                <div class="info_product_relate">
-                    <img src="' . htmlspecialchars($row["image_path"]) . '" alt="' . htmlspecialchars($row["name"]) . '">
-                    <p class="name_product_relate">' . htmlspecialchars($row["name"]) . '</p>
-                </div>
-                <p class="price_product_relate">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-            </div>';
+            echo '<a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row['product_id'] . '" style="border !important;">
+                <div class="product_relate">
+                    <div class="info_product_relate">
+                        <img src="' . htmlspecialchars($row["image_path"]) . '" alt="' . htmlspecialchars($row["name"]) . '">
+                        <p class="name_product_relate">' . htmlspecialchars($row["name"]) . '</p>
+                    </div>
+                    <p class="price_product_relate">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                  </div>
+                  </a>';
         }
     } else {
         echo '<p>Không có sản phẩm nào phù hợp.</p>';

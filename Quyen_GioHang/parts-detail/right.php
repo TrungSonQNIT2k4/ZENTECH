@@ -86,11 +86,8 @@ function format_currency($number) {
 <div class="right-info">
             <!-- giá tiền -->
           <div class="top-detail">
-            <div class="price-sale">
-               <?php echo number_format($product['price'])?>đ
-            </div>
             <div class="price-normal">
-            <?php echo number_format($product['price_sale'])?>đ
+            <?php echo number_format($product['price'])?>đ
             </div>
             <div class="code-product">
             <!-- <p>SKU: <span class="code"> REDA2PDN </span></p> -->

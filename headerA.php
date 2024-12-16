@@ -230,7 +230,7 @@
             if (searchTerm.length > 0) {
                 // Gửi yêu cầu AJAX đến server
                 const xhr = new XMLHttpRequest();
-                xhr.open("GET", `search_suggestions.php?search=${encodeURIComponent(searchTerm)}`, true);
+                xhr.open("GET", `/ZENTECH/search_suggestions.php?search=${encodeURIComponent(searchTerm)}`, true);
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         // Cập nhật kết quả gợi ý vào HTML

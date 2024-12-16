@@ -33,7 +33,7 @@ if(strlen($noidung)>= 15){
 $comments_per_page = 5; // Số bình luận hiển thị mỗi trang
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $comments_per_page;
- $query = "SELECT noidung , content, concat(firstname ,' ', lastname)  as name_cus, admin.name as name_admin ,replies.created_at as reply , comment.created_at as comment from users 
+ $query = "SELECT noidung , content, concat(firstname ,' ', lastname)  as name_cus, admin.fullname as name_admin ,replies.created_at as reply , comment.created_at as comment from users 
  right join comment on comment.customer_id= users.id
  left join replies on comment.comment_id = replies.comment_id
  left join admin on replies.admin_id = admin.admin_id 
@@ -54,7 +54,7 @@ $total_pages = ceil($total_comments / $comments_per_page);
       <div class="box-comment">
           <div class="comment">
               <h3 class="title-info">
-                  Bình luận về Redmi A2+ (3GB/64GB)
+                  Bình luận về <?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?>
                 </h3>
                 <div class="box-cmt">
                     <form action="" method="POST">

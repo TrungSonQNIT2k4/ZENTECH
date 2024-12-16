@@ -27,7 +27,7 @@
             <ul class="info-strikings-list">
                 <li><i class="ri-box-1-line"></i> Miễn phí vận chuyển toàn quốc</li>
                 <li><i class="ri-shield-check-line"></i> Bảo hành 18 tháng chính hãng.</li>
-                <li><i class="ri-box-1-line "></i> Bộ sản phẩm bao gồm: Thân máy, Củ sạc, Cáp Micro-USB, Cây lấy SIM, Tài liệu HDSD.</li>
+                <li><i class="ri-box-1-line "></i> Bộ sản phẩm bao gồm: Thân máy, Củ sạc, Cáp USB Type C, Cây lấy SIM, Tài liệu HDSD.</li>
                 <li><i class="ri-star-line "></i> 1 đổi 1 trong 30 ngày đầu nếu có lỗi phần cứng do nhà sản xuất.</li>
                 <li><i class="ri-bookmark-line"></i> Giá đã bao gồm VAT</li>
             </ul>

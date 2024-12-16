@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2024 lúc 11:36 AM
+-- Thời gian đã tạo: Th12 13, 2024 lúc 05:58 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -24,62 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `addresses`
---
-
-CREATE TABLE `addresses` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `address_type` enum('Home','Office') DEFAULT NULL,
-  `province` varchar(50) DEFAULT NULL,
-  `district` varchar(50) DEFAULT NULL,
-  `ward` varchar(50) DEFAULT NULL,
-  `specific_address` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` text NOT NULL,
-  `fullname` text NOT NULL,
-  `status` text NOT NULL,
-  `Password` text NOT NULL
+  `admin_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `fullname`, `status`, `Password`) VALUES
-(1, 'son0806', 'Sơn Võ', 'student', 'son0806');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `banner`
---
-
-CREATE TABLE `banner` (
-  `id` int(11) NOT NULL,
-  `image_path` varchar(255) NOT NULL,
-  `link` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `banner`
---
-
-INSERT INTO `banner` (`id`, `image_path`, `link`) VALUES
-(1, '/ZENTECH/Data/Image/bannerNoel.png', '#'),
-(2, '/ZENTECH/Data/Image/bannerZentech.png', '#'),
-(3, '/ZENTECH/Data/Image/bannerS24ULT.jpg', '#');
+INSERT INTO `admin` (`admin_id`, `name`, `password`, `email`) VALUES
+(1, 'Nguyễn Đào Quang Đăng', '123', 'ndqd@'),
+(2, 'Nguyễn Thị Lệ Quyền', '12345', 'quyen@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -277,41 +238,31 @@ INSERT INTO `motathuoctinh` (`id_thuoctinh`, `mota`, `product_id`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `image_path` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `product_id` int(10) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `price` int(12) DEFAULT NULL,
+  `price_sale` int(100) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `image_main` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `image_path`, `price`, `description`, `created_at`, `updated_at`) VALUES
-(101, 'iPhone 16 Pro Max VN/A', '/ZENTECH/Data/Image/ip16promax.jpg', 34990000.00, NULL, '2024-12-03 17:19:31', '2024-12-03 17:19:39'),
-(102, 'iPhone 16 Pro VN/A', '/ZENTECH/Data/Image/ip16pro.jpg', 28990000.00, NULL, '2024-12-03 17:19:31', '2024-12-03 17:19:49'),
-(103, 'iPhone 16 Plus VN/A', '/ZENTECH/Data/Image/ip16plus.jpg', 25990000.00, NULL, '2024-12-03 17:19:31', '2024-12-03 17:20:09'),
-(104, 'iPhone 16 VN/A', '/ZENTECH/Data/Image/ip16.jpg', 22290000.00, NULL, '2024-12-03 17:19:31', '2024-12-03 17:20:17'),
-(201, 'Samsung Galaxy A55', '/ZENTECH/Data/Image/A55.jpg', 8490000.00, 'Smartphone với cấu hình mạnh mẽ và thiết kế đẹp.', '2024-12-03 16:09:59', '2024-12-03 16:11:19'),
-(202, 'Samsung Galaxy Fold 6', '/ZENTECH/Data/Image/S24.jpg', 41990000.00, NULL, '2024-12-03 16:20:27', '2024-12-03 16:20:27'),
-(203, 'Samsung Galaxy Z Flip 6', '/ZENTECH/Data/Image/zflip.jpg', 26990000.00, NULL, '2024-12-03 16:20:27', '2024-12-03 16:20:27'),
-(204, 'Samsung Galaxy S24 Ultra', '/ZENTECH/Data/Image/fold.jpg', 29990000.00, NULL, '2024-12-03 16:20:27', '2024-12-03 16:24:38'),
-(205, 'Samsung S23 Ultra', '/ZENTECH/Data/Image/s23ultra.jpg', 25990000.00, NULL, '2024-12-03 17:14:42', '2024-12-03 17:15:13'),
-(301, 'xiaomi 14', '/ZENTECH/Data/Image/xiaomi14.jpg', 18990000.00, NULL, '2024-12-05 09:52:03', '2024-12-05 09:56:16'),
-(302, 'xiaomi 14 ultra', '/ZENTECH/Data/Image/xiaomi14ult.jpg', 27990000.00, NULL, '2024-12-05 09:52:47', '2024-12-05 09:56:24'),
-(303, 'xiaomi 14T', '/ZENTECH/Data/Image/xiaomi14T.jpg', 13990000.00, NULL, '2024-12-05 09:53:49', '2024-12-05 09:56:28'),
-(304, 'xiaomi Redmi note 13 pro 5G', '/ZENTECH/Data/Image/xiaomirmn13pro.jpg', 5150000.00, NULL, '2024-12-05 09:56:02', '2024-12-05 09:56:31'),
-(401, 'oppo find n3', '/ZENTECH/Data/Image/oppofindn3.jpg', 41990000.00, NULL, '2024-12-05 10:20:16', '2024-12-05 10:29:41'),
-(402, 'oppo find n3 flip', '/ZENTECH/Data/Image/oppofindn3flip.jpg', 17490000.00, NULL, '2024-12-05 10:21:16', '2024-12-05 10:29:48'),
-(403, 'oppo find x8 pro', '/ZENTECH/Data/Image/oppofindx8pro.jpg', 29990000.00, NULL, '2024-12-05 10:28:05', '2024-12-05 10:29:52'),
-(404, 'oppo find x7 ultra', '/ZENTECH/Data/Image/oppofindx7ult.jpg', 25890000.00, NULL, '2024-12-05 10:29:23', '2024-12-05 10:29:56'),
-(501, 'Galaxy Buds 3 pro', '/ZENTECH/Data/Image/buds3pro.jpg', 5090000.00, NULL, '2024-12-05 15:06:04', '2024-12-05 15:06:04'),
-(502, 'Magsafe', '/ZENTECH/Data/Image/magsafe.jpg', 1599000.00, NULL, '2024-12-05 15:06:49', '2024-12-05 15:06:49'),
-(503, 'Airpod 3', '/ZENTECH/Data/Image/airpods3.png', 3890000.00, NULL, '2024-12-05 15:07:34', '2024-12-05 15:35:25'),
-(504, 'Airpod pro 2', '/ZENTECH/Data/Image/airpodpro2.jpg', 5790000.00, NULL, '2024-12-05 15:10:19', '2024-12-05 15:10:19');
+INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `price_sale`, `category_id`, `brand_id`, `stock`, `created_at`, `updated_at`, `image_main`) VALUES
+(1, 'HONOR X5 Plus 4GB/64GB', NULL, 2090000, 2790000, NULL, NULL, NULL, '2024-11-11 16:39:51', '2024-11-11 16:39:51', 'x5-plus-1_638328150414991640.png'),
+(2, 'TECHNO SPARK Go 2024 (4+4GB/64GB)', NULL, 1890000, 2190000, NULL, NULL, NULL, '2024-11-11 16:39:51', '2024-11-11 16:39:51', 'tecno-spark-go-2024-black-1.png'),
+(3, 'Xiaomi Redmi 12 4GB/128GB', NULL, 2990000, 4290000, NULL, NULL, NULL, '2024-11-11 16:39:51', '2024-11-11 16:39:51', 'tecno-spark-go-2024-black-1.png'),
+(4, 'Samsung Galaxy A05-4GB/1128GB', NULL, 2690000, 2790000, NULL, NULL, NULL, '2024-11-11 16:39:51', '2024-11-11 16:39:51', 'a05-den-1.png'),
+(5, 'HTC Wildfire E3 lite (4GB/64GB)', NULL, 1790000, 2990000, NULL, NULL, NULL, '2024-11-11 16:39:51', '2024-11-11 16:39:51', 'htc-wildfire-e3-lite-blue.png'),
+(6, 'iPhone 16 Pro Max (256GB) - Chính hãng VN/A', NULL, 27000000, 0, NULL, NULL, NULL, '2024-12-13 08:27:12', '2024-12-13 08:27:12', 'iphone-16-pro-max-tu-nhien-1.png'),
+(7, 'Điện thoại iPhone 15 (512GB) - Chính hãng VN/A', NULL, 20000000, 18000000, NULL, NULL, NULL, '2024-12-13 08:27:12', '2024-12-13 08:27:12', 'iphone-15-xanh-la-1.png');
 
 -- --------------------------------------------------------
 
@@ -447,9 +398,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `address`, `phone`, `email`, `password`, `reset_token_hash`, `reset_token_expires_at`, `profile_image`) VALUES
-(1, 'Sơn', 'Võ', '231/01', '0905857860', 'trungsonbd2004@gmail.com', '$2y$10$JXm5kNBQMLwvJcsnnZxoWeU7oV1i9AVDXYxyWbsoC35XL32lbBXsy', NULL, NULL, '675c6a23e9f8e_anh_doi_ta_mau.jpg'),
-(3, 'Trân', 'Nguyễn', '27 NVH', '0964860022', 'baotranxsb@gmail.com', '$2y$10$wWpUgLvVi0x9OIcpO2XAoOCO2n5D6VU5vTtu3rMOpMTq1vEPL01oC', NULL, NULL, '675c5a487bb17_babyMay.jpg'),
-(4, 'Tường', 'Đỗ', 'Tây Sơn', '0905234234', 'tuong@gmail.com', '$2y$10$TX4h4jKxDyDNXEVtS3pUDuNmU7fGJPEl4GprgnNNos0wXiPNVF5he', NULL, NULL, '675c5acc9b84e_fa19a81c-c6d7-409a-806d-ee0e46100b8b.jpg');
+(1, 'Nhiên', 'Du', '170 An Dương Vương, Quy Nhơn, Bình Định, Việt Nam', '55664479', 'tuekhanhtin@gmail.com', '$2y$10$o9C.cGyUF2AcrLEOjDMBC.zkUKDyak5YXuO4WS1maIkxxdNzo5sGm', NULL, NULL, 'uploads/default.jpg'),
+(2, 'Quyền', 'Lệ', 'bình định', '0388993480', 'quyen@', '123', NULL, NULL, 'uploads/default.jpg'),
+(3, 'Khánh', 'Trần', '170 An Dương Vương, Quy Nhơn, Bình Định, Việt Nam', '0917593969', 'emrismao@gmail.com', '$2y$10$K1oQRCTeE8D6Fkc3mJfBjethdKRh4BYXb6Xo58GyzrrVUrKkZpzbm', '442af5f74baa75d28035449b6a6e5169227cf0082d76bc847a0bb818a6d7cd34', '2024-11-28 19:29:59', 'uploads/default.jpg'),
+(4, 'Phong (Yi Phong)', 'Nhất', '82London', '7894516', 'emrisgrindelwald@gmail.com', '$2y$10$rDA4tpS2ALNEsVDlrMg.A.LXEqFQqH.D9zlyvz1RMr.H34o1PfhOy', 'fa72d197306a352a30247ba8be725e07936b893e65a735cce3ee46073926d86f', '2024-12-03 16:04:18', '674ab87acc714_neka 老头！！！ by 百无一用 (1).png'),
+(5, 'Gokce', 'Grindelwald', 'Hành tinh mới', '55791354', 'gellerttrongsinh@gmail.com', '$2y$10$H4DoeJlWdCWfk3S3srdbG.kdqbDGEDm/2hW2zjvKbTM8Y8cYAT1nu', NULL, NULL, 'uploads/default.jpg'),
+(110, 'Aurelius (Credence)', 'Dumbledore', 'Hogsmead, London', '188318841314', 'gellertgrindelwald8398@gmail.com', '$2y$10$SAyLEQ48RRcIBWyV03cVJux4rGNJ9H8vK/LlNTX4XKAmmLMxknVAi', NULL, NULL, 'uploads/default.jpg');
 
 -- --------------------------------------------------------
 
@@ -470,28 +424,6 @@ CREATE TABLE `version` (
 INSERT INTO `version` (`version_id`, `version`, `product_id`) VALUES
 (1, '34GB', 1),
 (2, '128GB', 1);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `videos`
---
-
-CREATE TABLE `videos` (
-  `id` int(11) NOT NULL,
-  `video_path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `videos`
---
-
-INSERT INTO `videos` (`id`, `video_path`) VALUES
-(1, '/ZENTECH/Data/Image/adv16prm.mp4'),
-(2, '/ZENTECH/Data/Image/advs24ult.mp4'),
-(3, '/ZENTECH/Data/Image/advxiaomi14.mp4'),
-(4, '/ZENTECH/Data/Image/advoppon3flip.mp4'),
-(5, '/ZENTECH/Data/Image/advoppox8.mp4');
 
 -- --------------------------------------------------------
 
@@ -523,23 +455,10 @@ INSERT INTO `voucher` (`id_voucher`, `mota`, `giagiam`, `ngaytao`, `product_id`,
 --
 
 --
--- Chỉ mục cho bảng `addresses`
---
-ALTER TABLE `addresses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
 -- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `banner`
---
-ALTER TABLE `banner`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Chỉ mục cho bảng `cart`
@@ -576,7 +495,8 @@ ALTER TABLE `detail_image`
 -- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD UNIQUE KEY `product_id` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `replies`
@@ -607,20 +527,14 @@ ALTER TABLE `thuoctinh`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `reset_token_hash` (`reset_token_hash`),
-  ADD KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `reset_token_hash` (`reset_token_hash`);
 
 --
 -- Chỉ mục cho bảng `version`
 --
 ALTER TABLE `version`
   ADD PRIMARY KEY (`version_id`);
-
---
--- Chỉ mục cho bảng `videos`
---
-ALTER TABLE `videos`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `voucher`
@@ -633,28 +547,10 @@ ALTER TABLE `voucher`
 --
 
 --
--- AUTO_INCREMENT cho bảng `addresses`
---
-ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `banner`
---
-ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT cho bảng `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=505;
 
 --
 -- AUTO_INCREMENT cho bảng `replies`
@@ -666,23 +562,7 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `videos`
---
-ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `addresses`
---
-ALTER TABLE `addresses`
-  ADD CONSTRAINT `fk_user_address` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
