@@ -245,7 +245,7 @@
         });
     </script>
     <li class="globalnav-tool-content">
-        <img src="/ZENTECH/Data/Image/store.png" alt="" class="icon">
+        <a href="/ZENTECH/Quyen_GioHang/cart.php"><img src="/ZENTECH/Data/Image/store.png" alt="" class="icon"></a>
     </li>
     <li class="globalnav-tool-content">
     <img src="/ZENTECH/Data/Image/ICONLOGOZ.png" alt="" class="icon">

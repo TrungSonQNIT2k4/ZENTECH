@@ -117,7 +117,7 @@ function format_currency($number) {
                 if (mysqli_num_rows($resultco) > 0) {
                   while ($row = mysqli_fetch_assoc($resultco)) {
                       echo '<button onclick="image('.$row['color_id'].')" type="button" class="box-color" data-value = "'.$row['color_id'].'" value="color_id" name="color_id">
-                       <div class="image-bt"><img src="assets/image/'.$row['img_url'].'" alt="" /></div>
+                       <div class="image-bt"><img src="'.$row['img_url'].'" alt="" /></div>
                       <p>'.$row['color'].'</p> <i class="ri-check-line"></i>
                       </button>';
                   }

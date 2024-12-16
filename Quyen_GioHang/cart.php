@@ -1,4 +1,4 @@
-<?php  
+<?php
 session_start();
 include('connect.php');
 
@@ -80,73 +80,97 @@ if (isset($_GET['action'])) {
 }
 
 // Hàm định dạng tiền tệ
-function format_currency($number) {
+function format_currency($number)
+{
     return number_format($number, 0, ',', '.') . ' đ';
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
-    <link href="assets/css/style-cart.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="icon" href="/ZENTECH/Data/Image/ICONLOGOZ.png">
+    <link href="assets/css/style-cart.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/ZENTECH/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
-<section>
-    <div class="container">
-        <div class="cart-product">
-            <!-- Thông tin bên trái -->
-            <div class="left">
-                <div class="head">
-                    <div class="icon"><i class="ri-arrow-left-s-line"></i></div>
-                    <span class="text"> Quay lại</span>
-                </div>
-                <div class="box-table">
-                    <table>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Thuộc tính</th> 
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Tạm tính</th>
-                        </tr>
-                        <?php  
-                        $tong = 0; // Khởi tạo biến $tong
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $tong = $tong + $row['tamtinh'];
-                                echo '<tr>
+    <section>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . '/ZENTECH/headerA.php'); ?>
+        <div class="container">
+            <div class="cart-product">
+                <!-- Thông tin bên trái -->
+                <div class="left">
+                    <div class="head" onclick="goBackWithParams()" style="cursor: pointer;">
+                        <div class="icon">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </div>
+                        <span class="text"> Quay lại</span>
+
+                        <script>
+                            function goBackWithParams() {
+                                const urlParams = new URLSearchParams(window.location.search);
+                                const currentUrl = window.location.href;
+
+                                // Nếu URL có tham số id, sẽ quay lại trang trước đó hoặc trang chứa tham số id
+                                if (urlParams.has('id')) {
+                                    // Trở lại trang trước đó
+                                    window.history.back();
+                                } else {
+                                    // Nếu không có tham số id, quay lại trang trước đó
+                                    window.history.back();
+                                }
+                            }
+                        </script>
+                    </div>
+                    <div class="box-table">
+                        <table>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Thuộc tính</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tạm tính</th>
+                            </tr>
+                            <?php
+                            $tong = 0; // Khởi tạo biến $tong
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $tong = $tong + $row['tamtinh'];
+                                    echo '<tr>
                                         <td>
                                             <div class="flex">
-                                                <a href="cart.php?action=delete&product_id='.$row['product_id'].'&cart_id='.$row['cart_id'].'&user_id='.$row['user_id'].'&color_id='.$row['color_id'].'&version_id='.$row['version_id'].'">
+                                                <a href="cart.php?action=delete&product_id=' . $row['product_id'] . '&cart_id=' . $row['cart_id'] . '&user_id=' . $row['user_id'] . '&color_id=' . $row['color_id'] . '&version_id=' . $row['version_id'] . '">
                                                     <div class="delete-product">Xóa</div>
                                                 </a>
-                                                <a href="index-detail.php?id='.$row['product_id'].'">
+                                                <a href="index-detail.php?id=' . $row['product_id'] . '">
                                                     <div class="image-product">
-                                                        <img src="assets/image/'.$row['img_url'].'" alt=""/>
+                                                        <img src="' . $row['img_url'] . '" alt=""/>
                                                     </div>
                                                 </a>
-                                                <div class="name">'.$row['name'].'</div>
+                                                <div class="name">' . $row['name'] . '</div>
                                             </div>
                                         </td>   
                                         <td>
-                                            <div class="color">'.$row['color'].'</div>
-                                            <div class="version">'.$row['version'].'</div>
+                                            <div class="color">' . $row['color'] . '</div>
+                                            <div class="version">' . $row['version'] . '</div>
                                         </td>
                                         <td>
-                                            <div class="price">'.number_format($row['price']).' đ</div>
+                                            <div class="price">' . number_format($row['price']) . ' đ</div>
                                         </td>
                                         <td>
                                             <div class="soluong">
                                                 <div class="flex">
                                                     <div class="count">
-                                                        <a href="cart.php?action=increase&product_id='.$row['product_id'].'&cart_id='.$row['cart_id'].'&user_id='.$row['user_id'].'&color_id='.$row['color_id'].'&version_id='.$row['version_id'].'">
+                                                        <a href="cart.php?action=increase&product_id=' . $row['product_id'] . '&cart_id=' . $row['cart_id'] . '&user_id=' . $row['user_id'] . '&color_id=' . $row['color_id'] . '&version_id=' . $row['version_id'] . '">
                                                             <div class="dau">-</div>
                                                         </a>
-                                                        <div class="dau">'.$row['quantity'].'</div>
-                                                        <a href="cart.php?action=crease&product_id='.$row['product_id'].'&cart_id='.$row['cart_id'].'&user_id='.$row['user_id'].'&color_id='.$row['color_id'].'&version_id='.$row['version_id'].'">
+                                                        <div class="dau">' . $row['quantity'] . '</div>
+                                                        <a href="cart.php?action=crease&product_id=' . $row['product_id'] . '&cart_id=' . $row['cart_id'] . '&user_id=' . $row['user_id'] . '&color_id=' . $row['color_id'] . '&version_id=' . $row['version_id'] . '">
                                                             <div class="dau">+</div>
                                                         </a>
                                                     </div>
@@ -154,31 +178,32 @@ function format_currency($number) {
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="price">'.number_format($row['tamtinh']).' đ</div>
+                                            <div class="price">' . number_format($row['tamtinh']) . ' đ</div>
                                         </td>
                                     </tr>';
+                                }
                             }
-                        }
-                        ?>
-                    </table>
+                            ?>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        
-            <!-- Thông tin bên phải -->
-            <div class="right">
-                <p class="title">Cộng giỏ hàng</p>
-                <div class="flex">
-                    <p>Tạm tính</p>
-                    <span><?php echo number_format($tong); ?> đ</span>
+
+                <!-- Thông tin bên phải -->
+                <div class="right">
+                    <p class="title">Cộng giỏ hàng</p>
+                    <div class="flex">
+                        <p>Tạm tính</p>
+                        <span><?php echo number_format($tong); ?> đ</span>
+                    </div>
+                    <div class="flex">
+                        <p>Tổng</p>
+                        <span><?php echo number_format($tong); ?> đ</span>
+                    </div>
+                    <button class="thanhtoan">Tiến hành thanh toán</button>
                 </div>
-                <div class="flex">
-                    <p>Tổng</p>
-                    <span><?php echo number_format($tong); ?> đ</span>
-                </div>
-                <button class="thanhtoan">Tiến hành thanh toán</button>
             </div>
         </div>
-    </div>
-</section>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . '/ZENTECH/footer.php'); ?>
+    </section>
 </body>
 </html>
