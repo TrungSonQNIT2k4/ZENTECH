@@ -456,9 +456,10 @@ color:#ed5555 ;
     color: #ff5722;
 }
 .box-color.selected {
-    /* border-color: #ff5722;
-    background-color: #ffe4d2; */
+    border-color: #ff5722;
+    background-color: #ffe4d2;
     color: #ff5722;
+    cursor: pointer;
 }
 .image-bt img{
     width: 30px ;

@@ -1,53 +1,54 @@
 <?php
 include('connect.php');
 
-$product_id = isset($_GET['id']) ? $_GET['id'] : null;
-$color_id = isset($_GET['color_id']) ? $_GET['color_id'] : null;
+// Nhận product_id và color_id từ GET hoặc POST
+$product_id = isset($_GET['id']) ? intval($_GET['id']) : null;
+$color_id = isset($_GET['color_id']) ? intval($_GET['color_id']) : null;
 
-if (isset($_POST['color_id']) && $_POST[''] === 'color_id') {
-    $color_id = $_POST['color_id'];
-    echo $color_id;
-}
-
+// Khởi tạo biến
 $product = null;
-$imageData = []; // Khởi tạo để tránh lỗi nếu không có dữ liệu
-$resultmain = null; // Đảm bảo biến được khởi tạo
-$result = null;
+$imageData = [];
 
+// Kiểm tra product_id có hợp lệ không
 if ($product_id) {
-    // Truy vấn ảnh chính
-    $querymain = "SELECT image_path FROM products WHERE products.product_id = $product_id";
+    // Truy vấn ảnh chính của sản phẩm
+    $querymain = "SELECT image_path FROM products WHERE product_id = $product_id";
     $resultmain = mysqli_query($connect, $querymain);
-    $product = mysqli_fetch_assoc($resultmain);
 
-    // Truy vấn dữ liệu chi tiết
+    if ($resultmain && mysqli_num_rows($resultmain) > 0) {
+        $product = mysqli_fetch_assoc($resultmain);
+    }
+
+    // Truy vấn ảnh chi tiết và màu sắc
     $query = "
-        SELECT image_path, color, img_url, image_url, code_color.color_id
+        SELECT 
+            detail_image.image_url AS detail_image_url,
+            color_image.img_url AS color_img_url,
+            code_color.color_id AS color_id
         FROM products
         LEFT JOIN color_image ON color_image.product_id = products.product_id
         LEFT JOIN code_color ON code_color.color_id = color_image.color_id
         LEFT JOIN detail_image ON color_image.color_id = detail_image.color_id
-        WHERE products.product_id = $product_id AND color_image.color_id = '1'
-    ";
+        WHERE products.product_id = $product_id
+        " . ($color_id ? "AND color_image.color_id = $color_id" : ""); // Nếu có color_id thì lọc theo color_id
+
     $result = mysqli_query($connect, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $imageData[] = $row; // Lưu dữ liệu vào mảng
+            $imageData[] = $row;
         }
     }
 }
 ?>
 
 <div class="box-image-product">
-    <?php
-    if (!empty($imageData)) {
-        $mainImage = $imageData[0]; // Lấy ảnh đầu tiên làm ảnh chính
-        echo '<img id="main-image" data-color-id="' . $mainImage['color_id'] . '" src="' . $mainImage['img_url'] . '" alt="">'; // Định dạng PNG
-    } else {
-        echo '<img id="main-image" src="assets/image/default.png" alt="No Image">';
-    }
-    ?>
+    <?php if (!empty($imageData)): ?>
+        <?php $mainImage = $imageData[0]; ?>
+        <img id="main-image" data-color-id="<?= $mainImage['color_id'] ?>" src="<?= $mainImage['color_img_url'] ?>" alt="Product Image">
+    <?php else: ?>
+        <img id="main-image" src="/ZENTECH/Quyen_giohang/assets/image/default.png" alt="No Image">
+    <?php endif; ?>
     <button class="box-slider-left">
         <i class="ri-arrow-left-s-line"></i>
     </button>
@@ -57,19 +58,17 @@ if ($product_id) {
 </div>
 
 <div class="more-image">
-    <?php
-    if (!empty($imageData)) {
-        foreach ($imageData as $image) {
-            echo '
-            <div class="image-detail" data-color-id="' . $image['color_id'] . '">
+    <?php if (!empty($imageData)): ?>
+        <?php foreach ($imageData as $image): ?>
+            <div class="image-detail" data-color-id="<?= $image['color_id'] ?>">
                 <button class="image-pr">
-                    <img src="' . $image['image_url'] . '" alt="" />
+                    <img src="<?= $image['detail_image_url'] ?>" alt="Detail Image">
                 </button>
-            </div>';
-        }
-    }
-    ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

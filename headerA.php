@@ -265,7 +265,7 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
         });
     </script>
     <li class="globalnav-tool-content">
-        <img src="/ZENTECH/Data/Image/store.png" alt="" class="icon">
+        <a href="/ZENTECH/Quyen_GioHang/cart.php"><img src="/ZENTECH/Data/Image/store.png" alt="" class="icon"></a>
     </li>
     <li class="globalnav-tool-content">
     <!-- Hiển thị ảnh người dùng hoặc ảnh mặc định -->
