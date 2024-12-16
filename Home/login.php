@@ -13,7 +13,7 @@ if (isset($_GET['message']) && $_GET['message'] == 'Password reset successful') 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Pro5-Login&register/css/login.css">
+    <link rel="stylesheet" href="../css-K/login.css">
 </head>
 <main>
     <section class="container-login">
@@ -117,6 +117,6 @@ if (isset($_GET['message']) && $_GET['message'] == 'Password reset successful') 
         </div>
     </section>
 
-    <script src="../Pro5-Login&register/js/script.js"></script>
+    <script src="../js/script.js"></script>
     </main>
 </html>

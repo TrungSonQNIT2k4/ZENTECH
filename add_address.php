@@ -80,12 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
-    <link rel="stylesheet" href="/css/order_all.css">
+    <link rel="stylesheet" href="../ZENTECH/assets-K/chang_adress.css">
+    <link rel="stylesheet" href="../ZENTECH/css/order_all.css">
     <title>Thêm Địa Chỉ</title>
 </head>
 <body>
-<?php include 'templates/sidebar.php'; ?>
+    <?php include 'templates/sidebar.php'; ?>
 
     <section class="main-content">
         <?php if (isset($_SESSION['message'])): ?>
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button type="submit">Hoàn Thành</button>
                 </div>
             </div>
-            <a href="index.php">Trở Lại</a>
+            <a href="index-K.php">Trở Lại</a>
         </form>
     </section>
 </body>

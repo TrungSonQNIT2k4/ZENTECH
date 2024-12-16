@@ -32,7 +32,7 @@ if ($stmt->rowCount() > 0) {
     $mail->Subject = "Password Reset";
     $mail->Body = <<<END
 
-    Click <a href="http://localhost/Pro5-Login&register/reset-password.php?token=$token">here</a>
+    Click <a href="http://localhost/ZENTECH/reset-password.php?token=$token">here</a>
     to reset your password.
 
     END;

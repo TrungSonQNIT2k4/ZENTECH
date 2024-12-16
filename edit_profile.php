@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email AND id != :id");
         $stmt->execute(['email' => $email, 'id' => $user_id]);
         if ($stmt->rowCount() > 0) {
-            echo "<script>alert('Email đã tồn tại! Vui lòng chọn email khác.'); window.location='index.php';</script>";
+            echo "<script>alert('Email đã tồn tại! Vui lòng chọn email khác.'); window.location='index-K.php';</script>";
             exit;
         }
 
@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Kiểm tra xem có lỗi tải ảnh không
         if ($upload_error) {
-            echo "<script>alert('$upload_error'); window.location='index.php';</script>";
+            echo "<script>alert('$upload_error'); window.location='index-K.php';</script>";
             exit;
         }
 

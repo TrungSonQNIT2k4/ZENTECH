@@ -1,3 +1,21 @@
+<?php
+// Kết nối cơ sở dữ liệu
+require 'db.php';  // Chắc chắn rằng tệp db.php chứa kết nối PDO
+
+// Lấy thông tin người dùng từ CSDL (bạn cần có session user_id trước đó)
+session_start(); // Bắt đầu session nếu chưa
+$user_id = $_SESSION['user_id'];  // Lấy user_id từ session
+
+// Truy vấn thông tin người dùng từ cơ sở dữ liệu
+$stmt = $pdo->prepare("SELECT profile_image FROM users WHERE id = :id");
+$stmt->execute(['id' => $user_id]);
+$user = $stmt->fetch();
+
+// Kiểm tra xem người dùng có ảnh đại diện hay không
+$profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $user['profile_image'])
+    ? 'uploads/' . $user['profile_image']  // Nếu có ảnh, lấy đường dẫn tới ảnh
+    : '/ZENTECH/Data/Image/ICONLOGOZ.png';  // Nếu không có ảnh, sử dụng ảnh mặc định
+?>
 <div class="header">
     <div class="header_inner">
         <a href="/ZENTECH/index.php"><img src="/ZENTECH/Data/Image/LOGO.png" alt="" class="header_logo"></a>
@@ -208,6 +226,8 @@
     </div>
 </li>
 </ul>
+
+
 <ul id="globalnav-tool" class="globalnav-tool">
     <li class="globalnav-tool-search">
         <img src="/ZENTECH/Data/Image/search.png" alt="Search Icon" class="icon">
@@ -248,10 +268,11 @@
         <img src="/ZENTECH/Data/Image/store.png" alt="" class="icon">
     </li>
     <li class="globalnav-tool-content">
-    <img src="/ZENTECH/Data/Image/ICONLOGOZ.png" alt="" class="icon">
+    <!-- Hiển thị ảnh người dùng hoặc ảnh mặc định -->
+    <img src="<?= htmlspecialchars($profile_image) ?>" alt="Ảnh đại diện" class="icon" width="100" height="100" style="border-radius: 50%; object-fit: cover;">
     <div class="setting_box">
         <ul class="setting_properties">
-            <li><a href="/ZENTECH/Pro5-Login&register/profile.php">
+            <li><a href="/ZENTECH/profile.php">
                     <p>Xem thông tin</p>
                 </a></li>
             <li><a href="">

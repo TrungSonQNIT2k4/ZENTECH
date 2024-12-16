@@ -1,10 +1,9 @@
 <?php
-session_start();
 require 'connect_db.php';
 
 // Kiểm tra người dùng đã đăng nhập
 if (!isset($_SESSION['user_id'])) {
-    header("/Pro5-Login&register/login.php");
+    header("Location: login.php"); // Sửa đường dẫn header với "Location:"
     exit;
 }
 
@@ -22,9 +21,6 @@ if (!$user) {
     exit;
 }
 
-// Debug dữ liệu người dùng
-// echo '<pre>'; print_r($user); echo '</pre>'; exit;
-
 // Xử lý giá trị mặc định
 $firstname = $user['firstname'] ?? 'Chưa có thông tin';
 $lastname = $user['lastname'] ?? 'Chưa có thông tin';
@@ -34,20 +30,21 @@ $address = $user['address'] ?? 'Chưa có thông tin';
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>zentech.com</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/css/order_all.css">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/css/order_return.css">
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="../css/order_all.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/order_return.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php include ("/ZENTECH/headerA.php") ?>
+<?php include ("../headerA.php") ?>
         <?php include 'templates/sidebar.php'; ?>
             <div class="content">
                 <div class="menu_link">

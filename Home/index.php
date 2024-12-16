@@ -37,14 +37,14 @@ $address = $user['address'] ?? 'Chưa có thông tin';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
+    <link rel="stylesheet" href="../assets-K/profile.css">
     <link rel="stylesheet" href="/css/order_all.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/css/profile.css">
     <title>Hồ Sơ</title>
 </head>
 <body>
-<?php include ("/ZENTECH/headerA.php") ?>
+<?php include ("../headerA.php") ?>
     <?php include 'templates/sidebar.php'; ?>
     
     <section class="main-content">
@@ -85,7 +85,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                 </div>
             </div>
         </form>
-        <?php include ("/ZENTECH/Home/footer.php") ?>
+        <?php include ("../Home/footer.php") ?>
     </section>
 </body>
 </html>

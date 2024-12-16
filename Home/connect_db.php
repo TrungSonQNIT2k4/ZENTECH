@@ -1,4 +1,9 @@
 <?php
+$host = 'localhost';
+$dbname = 'zentech';
+$username = 'root';
+$password = '';
+
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=zentech", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -6,4 +11,6 @@ try {
 } catch (PDOException $e) {
     die("Kết nối CSDL thất bại: " . $e->getMessage());
 }
+
+return $pdo
 ?>

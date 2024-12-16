@@ -22,23 +22,13 @@ $profile_image = !empty($user['profile_image']) && file_exists('uploads/' . $use
         </div>
     </div>
     <hr>
-    <ul>
-<<<<<<< HEAD
-        <div class="nav_bill_link">
-            <a href="index.php">Hồ sơ</a>
-            <a href="add_address.php">Thêm Địa chỉ</a>
-            <a href="list_addresses.php">Danh sách Địa chỉ</a>
-            <a href="change_password.php">Đổi mật khẩu</a>
-            <a href="logout.php">Đăng xuất</a>
-            <a href="/Home/order_all.php">Đơn Mua</a>
-        </div>
-=======
+    <ul class="nav_bill_link">
         <li><a href="/ZENTECH/indexA.php">Trang chủ</a></li>
         <li><a href="profile.php">Hồ sơ</a></li>
         <li><a href="add_address.php">Thêm Địa chỉ</a></li>
         <li><a href="list_addresses.php">Danh sách Địa chỉ</a></li>
         <li><a href="change_password.php">Đổi mật khẩu</a></li>
+        <li><a href="/ZENTECH/Home/order_all.php">Đơn Mua</a></li>
         <li><a href="logout.php">Đăng xuất</a></li>
->>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
     </ul>
 </div>

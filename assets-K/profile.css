@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-body {
-    margin: 0;
-=======
+
 .profile-container {
     font-family: Arial, sans-serif;
->>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
     display: flex;
     margin: 0;
 }
@@ -45,12 +41,9 @@ body {
     background-color: #f4f4f4;
     padding: 20px;
     margin-right: 20px;
-<<<<<<< HEAD
     height: 95vh;
-=======
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
     margin-right: 100px;
->>>>>>> 3ba52c8682aa240ccff5915cfefdd2cc72327173
 }
 
 .sidebar .user-info {
@@ -168,4 +161,3 @@ button:active {
         grid-column: span 1;
     }
 }
-  

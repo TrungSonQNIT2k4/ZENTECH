@@ -4,7 +4,7 @@ require 'connect_db.php';
 
 // Kiểm tra người dùng đã đăng nhập
 if (!isset($_SESSION['user_id'])) {
-    header("/Pro5-Login&register/login.php");
+    header("/login.php");
     exit;
 }
 

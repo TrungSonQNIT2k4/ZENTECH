@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Pro5-Login&register/assets/edit_address.css">
+    <link rel="stylesheet" href="../assets-K/edit_address.css">
     <title>Chỉnh Sửa Địa Chỉ</title>
 </head>
 <body>

@@ -1,5 +1,5 @@
 <?php  
-include('HOANGHAMOBILE/connect.php');
+include('Quyen_GioHang/connect.php');
 session_start(); 
 $_SESSION["cart_id"] = "4";  
 $cart_id = $_SESSION["cart_id"];
@@ -159,8 +159,8 @@ if ($cart_id) {
                         <li class="globalnav-tool-content">
                             <img src="/ZENTECH/DATA/Image/search.png" alt="" class="icon">
                         </li>
-                        <li class="globalnav-tool-content"><img src="/ZENTECH/DATA/Image/store.png" alt="" class="icon-cart" ><span class="count-cart">  <?php echo $count_cart; ?></span></li>
-                        <li class="globalnav-tool-content"><img src="/ZENTECH/DATA/Image/login.png" alt="" class="icon"></li>
+                        <li class="globalnav-tool-content"><a href="/ZENTECH/login.php"><img src="/ZENTECH/DATA/Image/store.png" style="width: 40px; height: 40px;" alt="" class="icon-cart" ></a><span style="font-size: 10px;" class="count-cart">  <?php echo $count_cart; ?></span></li>
+                        <li class="globalnav-tool-content"><a href="/ZENTECH/login.php"><img src="/ZENTECH/DATA/Image/login.png" alt="" class="icon"></a></li>
                     </ul>
                 </div>
             </div>

@@ -21,8 +21,8 @@ $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Pro5-Login&register/assets/list_addresses.css">
-    <link rel="stylesheet" href="../Pro5-Login&register/assets/profile.css">
+    <link rel="stylesheet" href="../ZENTECH/assets-K/list_addresses.css">
+    <link rel="stylesheet" href="../ZENTECH/assets-K/profile.css">
     <link rel="stylesheet" href="/css/order_all.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/style.css">
