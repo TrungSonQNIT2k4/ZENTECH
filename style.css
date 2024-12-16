@@ -80,7 +80,27 @@ li {
   margin-right: 30px;
   transition: all 0.2s;
 }
-
+.count-cart{
+  width: 20px ;
+  height: 20px ;
+  background-color: red ;
+  color: white;
+  border-radius: 50% ;
+  display: flex ;
+  align-items: center ;
+  justify-content: center ;
+  font-size: 13px ;
+  font-weight: 600 ; 
+  position: absolute ;
+  margin-left: 10px;
+}
+.icon-cart{
+   position: relative ;
+   width: 52px;
+   height: 52px;
+   display: block;
+   padding: 10px 10px ;
+}
 .globalnav-list-content:hover {
   color: red;
 }
