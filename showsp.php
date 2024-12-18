@@ -71,6 +71,7 @@ $(document).ready(function() {
     // Kết nối cơ sở dữ liệu
     require 'db.php';
 
+    $headerFile = isset($_SESSION['user_id']) ? 'headerA.php' : 'header.php';
     // Xử lý tham số GET
     $selectedBrand = isset($_GET['brand']) ? $_GET['brand'] : '';
     $selectedMemory = isset($_GET['memory']) ? $_GET['memory'] : '';
@@ -137,7 +138,7 @@ $(document).ready(function() {
     }
     ?>
 
-    <?php include 'headerA.php'; ?>
+<?php include $headerFile; ?>
 
     <div class="container_show_item">
         <!-- Bộ lọc sản phẩm -->

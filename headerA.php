@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 } // Bắt đầu session nếu chưa
 
 $user_id = $_SESSION['user_id'];  // Lấy user_id từ session
-$cart_id =$_SESSION['cart_id'];
+$cart_id = $_SESSION['cart_id'];
 
 // Kiểm tra nếu user_id tồn tại
 if (!isset($user_id)) {
@@ -48,31 +48,21 @@ if ($cart_id) {
     <div class="header_inner">
         <a href="/ZENTECH/index.php"><img src="/ZENTECH/Data/Image/LOGO.png" alt="" class="header_logo"></a>
         <ul id="globalnav-list" class="globalnav-list">
-            <li class="menu_item">
-                <a href="">
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=iphone">
                     <p class="globalnav-list-content">iPhone</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=samsung">
                     <p class="globalnav-list-content">Samsung</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=xiaomi">
                     <p class="globalnav-list-content">Xiaomi</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
-                    <p class="globalnav-list-content">oppo</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=oppo">
+                    <p class="globalnav-list-content">Oppo</p>
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=accessories">
                     <p class="globalnav-list-content">Phụ kiện</p>
-                </a>
-            </li>
+                </a> </li>
         </ul>
 
         <ul id="globalnav-tool" class="globalnav-tool">
@@ -90,14 +80,14 @@ if ($cart_id) {
                 </div>
             </li>
             <script>
-                document.getElementById("searchInput").addEventListener("input", function () {
+                document.getElementById("searchInput").addEventListener("input", function() {
                     const searchTerm = this.value;
 
                     if (searchTerm.length > 0) {
                         // Gửi yêu cầu AJAX đến server
                         const xhr = new XMLHttpRequest();
                         xhr.open("GET", `/ZENTECH/search_suggestions.php?search=${encodeURIComponent(searchTerm)}`, true);
-                        xhr.onload = function () {
+                        xhr.onload = function() {
                             if (xhr.status === 200) {
                                 // Cập nhật kết quả gợi ý vào HTML
                                 document.getElementById("productSuggestions").innerHTML = xhr.responseText;

@@ -13,31 +13,21 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="header_inner">
         <a href="/ZENTECH/index.php"><img src="/ZENTECH/Data/Image/LOGO.png" alt="" class="header_logo"></a>
         <ul id="globalnav-list" class="globalnav-list">
-            <li class="menu_item">
-                <a href="">
+        <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=iphone">
                     <p class="globalnav-list-content">iPhone</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=samsung">
                     <p class="globalnav-list-content">Samsung</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=xiaomi">
                     <p class="globalnav-list-content">Xiaomi</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
-                    <p class="globalnav-list-content">oppo</p>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="">
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=oppo">
+                    <p class="globalnav-list-content">Oppo</p>
+                </a> </li>
+            <li class="menu_item"> <a href="/ZENTECH/showsp.php?brand=accessories">
                     <p class="globalnav-list-content">Phụ kiện</p>
-                </a>
-            </li>
+                </a> </li>
         </ul>
 
         <ul id="globalnav-tool" class="globalnav-tool">

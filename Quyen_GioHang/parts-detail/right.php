@@ -45,13 +45,6 @@ if ($product_id) {
     $stmtts->bindParam(':product_id', $product_id, PDO::PARAM_INT);
     $stmtts->execute();
     $resultts = $stmtts->fetchAll(PDO::FETCH_ASSOC);
-
-    // Truy vấn voucher
-    $queryv = "SELECT * from voucher WHERE product_id = :product_id";
-    $stmtv = $pdo->prepare($queryv);
-    $stmtv->bindParam(':product_id', $product_id, PDO::PARAM_INT);
-    $stmtv->execute();
-    $resultv = $stmtv->fetchAll(PDO::FETCH_ASSOC);
 }
 
 if (isset($_POST['add-cart']) && $_POST['add-cart'] === 'add-cart') {
@@ -100,8 +93,7 @@ if (isset($_POST['add-cart']) && $_POST['add-cart'] === 'add-cart') {
                 $stmtinsert->bindParam(':version_id', $version);
 
                 if ($stmtinsert->execute()) {
-                    echo "<script>alert('Thêm vào giỏ hàng thành công!');
-                    location.reload();</script>";
+                    echo "<script>alert('Thêm vào giỏ hàng thành công!'); location.reload();</script>";
                 } else {
                     echo "<script>alert('Lỗi khi thêm vào giỏ hàng: " . $pdo->errorInfo() . "');</script>";
                 }
@@ -118,7 +110,6 @@ function format_currency($number) {
     return number_format($number, 0, ',', '.') . ' đ';
 }
 ?>
-
 
 <!-- Hiển thị thông tin sản phẩm, phiên bản, màu sắc và thêm vào giỏ hàng -->
 <div class="right-info">
@@ -138,7 +129,6 @@ function format_currency($number) {
             <div class="title-version">Lựa chọn phiên bản</div>
             <div class="list-version">
                 <?php
-                // Kiểm tra nếu $resultver có dữ liệu
                 if (isset($resultver) && $resultver) {
                     foreach ($resultver as $row) {
                         echo '<div class="version-for-feature" data-value="' . $row['version_id'] . '">' . $row['version'] . ' <i class="ri-check-line"></i> </div>';
@@ -147,11 +137,11 @@ function format_currency($number) {
                 ?>
             </div>
         </div>
+
         <div class="version-section">
             <div class="title-version">Lựa chọn màu</div>
             <div class="list-version">
                 <?php
-                // Kiểm tra nếu $resultco có dữ liệu
                 if (isset($resultco) && $resultco) {
                     foreach ($resultco as $row) {
                         echo '<button onclick="image(' . $row['color_id'] . ')" type="button" class="box-color" data-value="' . $row['color_id'] . '" value="color_id" name="color_id">
