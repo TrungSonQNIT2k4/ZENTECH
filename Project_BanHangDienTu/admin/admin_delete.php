@@ -9,7 +9,7 @@ if (!empty($_SESSION['current_user'])) {
         $id = (int)$_GET['id'];
 
         // Xóa admin khỏi cơ sở dữ liệu
-        $stmt = $con->prepare("DELETE FROM `admin` WHERE `id` = ?");
+        $stmt = $con->prepare("DELETE FROM `admin` WHERE `admin_id` = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $stmt->close();

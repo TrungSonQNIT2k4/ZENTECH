@@ -4,7 +4,7 @@ include 'header.php';
 if (!empty($_SESSION['current_user'])) {
     ?>
     <div class="main-content">
-        <h1>Xóa sản phẩm</h1>
+        <h1>Xóa user</h1>
         <div id="content-box">
             <?php
             $error = false;
@@ -16,25 +16,25 @@ if (!empty($_SESSION['current_user'])) {
                     include '../connect_db.php';
 
                     // Sử dụng Prepared Statements để xóa sản phẩm
-                    $stmt = $con->prepare("DELETE FROM `products` WHERE `product_id` = ?");
+                    $stmt = $con->prepare("DELETE FROM `users` WHERE `id` = ?");
                     $stmt->bind_param("i", $id);
 
                     // Thực thi câu lệnh xóa
                     if ($stmt->execute()) {
                         // Thiết lập thông báo thành công trong session
-                        $_SESSION['success_message'] = 'Bạn đã xóa sản phẩm thành công!';
+                        $_SESSION['success_message'] = 'Bạn đã xóa user thành công!';
                     } else {
-                        $error = "Không thể xóa sản phẩm. Vui lòng thử lại sau.";
+                        $error = "Không thể xóa user. Vui lòng thử lại sau.";
                     }
 
                     // Đóng kết nối
                     $stmt->close();
                     mysqli_close($con);
                 } else {
-                    $error = "ID sản phẩm không hợp lệ.";
+                    $error = "ID user không hợp lệ.";
                 }
             } else {
-                $error = "ID sản phẩm không được tìm thấy.";
+                $error = "ID user không được tìm thấy.";
             }
 
             // Nếu có lỗi, hiển thị thông báo lỗi
@@ -42,7 +42,7 @@ if (!empty($_SESSION['current_user'])) {
                 echo '<div id="error-notify" class="box-content">
                         <h2>Thông báo</h2>
                         <h4>' . htmlspecialchars($error) . '</h4>
-                        <a href="./product_listing.php">Quay lại</a>
+                        <a href="./user_listing.php">Quay lại</a>
                       </div>';
             }
 
@@ -51,7 +51,7 @@ if (!empty($_SESSION['current_user'])) {
                 // Hiển thị thông báo thành công bằng alert
                 echo '<script>
                         alert("' . $_SESSION['success_message'] . '");
-                        window.location.href = "product_listing.php";
+                        window.location.href = "user_listing.php";
                       </script>';
                 // Xóa thông báo sau khi đã hiển thị
                 unset($_SESSION['success_message']);

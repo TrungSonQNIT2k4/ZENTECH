@@ -63,7 +63,7 @@ if (!empty($_SESSION['current_user'])) {
             // Lấy thông tin sản phẩm để chỉnh sửa
             $product = [];
             if (!empty($_GET['id'])) {
-                $stmt = $con->prepare("SELECT * FROM `products` WHERE `id` = ?");
+                $stmt = $con->prepare("SELECT * FROM `products` WHERE `product_id` = ?");
                 $stmt->bind_param("i", $_GET['id']);
                 $stmt->execute();
                 $result = $stmt->get_result();

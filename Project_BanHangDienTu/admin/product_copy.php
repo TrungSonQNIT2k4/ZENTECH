@@ -6,7 +6,7 @@ if (!empty($_SESSION['current_user']) && isset($_GET['id'])) {
     $id = (int)$_GET['id'];
 
     // Truy vấn lấy thông tin sản phẩm cần sao chép
-    $stmt = $con->prepare("SELECT * FROM `products` WHERE `id` = ?");
+    $stmt = $con->prepare("SELECT * FROM `products` WHERE `product_id` = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();

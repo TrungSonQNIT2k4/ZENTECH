@@ -82,6 +82,15 @@ h1{
 .product-id{
     width: 50px;
 }
+.comment-id{
+    width: 50px
+}
+.voucher-id{
+    width: 50px;
+}
+.comment-content{
+    width: 300px;
+}
 .product-img img{
     height: 100px;
     width: 100px;

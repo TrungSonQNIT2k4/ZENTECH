@@ -21,7 +21,7 @@
     // Kiểm tra nếu đã có dữ liệu từ form đăng nhập (username và password)
     if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])) {
         // Truy vấn cơ sở dữ liệu để kiểm tra thông tin đăng nhập
-        $result = mysqli_query($con, "SELECT `id`, `username`, `fullname`, `status` FROM `admin` WHERE (`username` ='" . $_POST['username'] . "' AND `password` ='" . $_POST['password'] . "')");
+        $result = mysqli_query($con, "SELECT `admin_id`, `username`, `fullname`, `status` FROM `admin` WHERE (`username` ='" . $_POST['username'] . "' AND `password` ='" . $_POST['password'] . "')");
 
         // Kiểm tra nếu truy vấn bị lỗi
         if (!$result) {

@@ -9,7 +9,7 @@ if (!empty($_SESSION['current_user'])) {
 
     // Nếu có ID, nghĩa là đang chỉnh sửa admin
     if ($id) {
-        $stmt = $con->prepare("SELECT * FROM `admin` WHERE `id` = ?");
+        $stmt = $con->prepare("SELECT * FROM `admin` WHERE `admin_id` = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -30,7 +30,7 @@ if (!empty($_SESSION['current_user'])) {
 
         if ($id) {
             // Cập nhật admin
-            $stmt = $con->prepare("UPDATE `admin` SET `username` = ?, `password` = ?, `fullname` = ? WHERE `id` = ?");
+            $stmt = $con->prepare("UPDATE `admin` SET `username` = ?, `password` = ?, `fullname` = ? WHERE `admin_id` = ?");
             $stmt->bind_param("sssi", $username, $password, $fullname, $id);
         } else {
             // Thêm admin mới
@@ -40,7 +40,7 @@ if (!empty($_SESSION['current_user'])) {
         $stmt->execute();
         $stmt->close();
 
-        header("Location: admin_listing.php"); // Chuyển hướng về danh sách admin
+        header("Location: admin_info.php"); // Chuyển hướng về thông tin admin
         exit;
     }
 ?>

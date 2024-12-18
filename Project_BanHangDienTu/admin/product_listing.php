@@ -47,7 +47,7 @@ if (!empty($_SESSION['current_user'])) {
     $totalPages = ceil($totalRecords / $item_per_page);
 
     // Truy vấn các sản phẩm với phân trang
-    $stmt = $con->prepare("SELECT * FROM `products` ORDER BY `id` ASC LIMIT ? OFFSET ?");
+    $stmt = $con->prepare("SELECT * FROM `products` ORDER BY `product_id` ASC LIMIT ? OFFSET ?");
     $stmt->bind_param("ii", $item_per_page, $offset);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -78,7 +78,7 @@ if (!empty($_SESSION['current_user'])) {
                 foreach ($products as $row) {
                 ?>
                     <li>
-                        <div class="product-prop product-id"><?= htmlspecialchars($row['id']) ?></div>
+                        <div class="product-prop product-id"><?= htmlspecialchars($row['product_id']) ?></div>
                         <div class="product-prop product-img">
                             <img src="<?= htmlspecialchars($row['image_path']) ?>" alt="<?= htmlspecialchars($row['name']) ?>" title="<?= htmlspecialchars($row['name']) ?>" />
                         </div>
@@ -87,14 +87,14 @@ if (!empty($_SESSION['current_user'])) {
                         <div class="product-prop product-time"><?= date($row['created_at']) ?></div>
                         <div class="product-prop product-time"><?= date($row['updated_at']) ?></div>
                         <div class="product-prop product-button">
-                            <a href="./product_editing.php?id=<?= htmlspecialchars($row['id']) ?>">Sửa</a>
+                            <a href="./product_editing.php?id=<?= htmlspecialchars($row['product_id']) ?>">Sửa</a>
                         </div>
                         <div class="product-prop product-button">
-                            <a href="./product_copy.php?id=<?= htmlspecialchars($row['id']) ?>">Copy</a>
+                            <a href="./product_copy.php?id=<?= htmlspecialchars($row['product_id']) ?>">Copy</a>
                         </div>
 
                         <div class="product-prop product-button">
-                            <a href="./product_delete.php?id=<?= htmlspecialchars($row['id']) ?>">Xóa</a>
+                            <a href="./product_delete.php?id=<?= htmlspecialchars($row['product_id']) ?>">Xóa</a>
                         </div>
                         <div class="clear-both"></div>
                     </li>

@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-panel">
                         <img height="24" src="../icon/home.png" /> <!-- Biểu tượng trang chủ -->
-                        <a href="../admin/home_admin.php">Trang chủ</a> <!-- Liên kết đến trang chủ admin -->
+                        <a href="../admin/admin_info.php">Thông tin Admin</a> <!-- Liên kết đến trang chủ admin -->
                         <img height="24" src="../icon/logout.png" /> <!-- Biểu tượng đăng xuất -->
                         <a href="logout.php">Đăng xuất</a> <!-- Liên kết đăng xuất -->
                     </div>
@@ -34,8 +34,10 @@
                         <div class="menu-heading">Admin Menu</div> <!-- Tiêu đề menu -->
                         <div class="menu-items">
                             <ul>
-                                <li><a href="admin_listing.php">Quản lý Admin</a></li> <!-- Liên kết đến quản lý admin -->
+                                <li><a href="user_listing.php">Quản lý tài khoản khách</a></li> <!-- Liên kết đến quản lý admin -->
                                 <li><a href="product_listing.php">Quản lý sản phẩm</a></li> <!-- Liên kết đến quản lý sản phẩm -->
+                                <li><a href="voucher_listing.php">Quản lý voucher</a></li>
+                                <li><a href="comment_listing.php">Quản lý đánh giá</a></li>
                                 <li><a href="#">Đơn hàng</a></li> <!-- Liên kết đến quản lý đơn hàng (chưa có trang) -->
                             </ul>
                         </div>

@@ -19,7 +19,7 @@ if (!empty($_SESSION['current_user'])) {
     $totalPages = ceil($totalRecords / $item_per_page);
 
     // Truy vấn admin với phân trang
-    $stmt = $con->prepare("SELECT * FROM `admin` ORDER BY `id` DESC LIMIT ? OFFSET ?");
+    $stmt = $con->prepare("SELECT * FROM `admin` ORDER BY `admin_id` DESC LIMIT ? OFFSET ?");
     $stmt->bind_param("ii", $item_per_page, $offset);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,7 +28,7 @@ if (!empty($_SESSION['current_user'])) {
 
     ?>
     <div class="main-content">
-        <h1>Danh sách admin</h1>
+        <h1>Thông tin cá nhân</h1>
         <div class="product-items">
             <div class="buttons">
                 <a class="add_product" href="./admin_editing.php">Thêm admin</a>
@@ -38,7 +38,6 @@ if (!empty($_SESSION['current_user'])) {
                     <div class="product-prop product-name">Tên đăng nhập</div>
                     <div class="product-prop product-name">Tên đầy đủ</div> <!-- Thêm cột Tên đầy đủ -->
                     <div class="product-prop product-button">Sửa</div>
-                    <div class="product-prop product-button">Xóa</div>
                     <div class="clear-both"></div>
                 </li>
                 <?php
@@ -48,10 +47,7 @@ if (!empty($_SESSION['current_user'])) {
                         <div class="product-prop product-name"><?= htmlspecialchars($row['username']) ?></div>
                         <div class="product-prop product-name"><?= htmlspecialchars($row['fullname']) ?></div> <!-- Hiển thị tên đầy đủ -->
                         <div class="product-prop product-button">
-                            <a href="./admin_editing.php?id=<?= htmlspecialchars($row['id']) ?>">Sửa</a>
-                        </div>
-                        <div class="product-prop product-button">
-                            <a href="./admin_delete.php?id=<?= htmlspecialchars($row['id']) ?>">Xóa</a>
+                            <a href="./admin_editing.php?id=<?= htmlspecialchars($row['admin_id']) ?>">Sửa</a>
                         </div>
                         <div class="clear-both"></div>
                     </li>
