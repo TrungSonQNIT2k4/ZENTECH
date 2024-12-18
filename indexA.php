@@ -12,7 +12,8 @@
 </head>
 
 <?php
-include 'database_connect.php'
+// Kết nối cơ sở dữ liệu với PDO
+include 'db.php'; // Đảm bảo tệp này sử dụng PDO
 ?>
 
 <?php

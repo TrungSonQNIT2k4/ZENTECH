@@ -1,201 +1,203 @@
 <div class="container" id="container">
     <div class="banner">
-        <ul>
+        <button id="prevButton" class="banner-btn prev-btn"><img src="/ZENTECH/Data/Image/prev.png" alt=""></button>
+        <div class="banner-wrapper">
             <?php
-            $conn = connectDatabase();
-            $sql = "SELECT * FROM banner ORDER BY RAND() LIMIT 1";
-            $result = $conn->query($sql);
+            // Kết nối cơ sở dữ liệu sử dụng PDO
+            include 'db.php'; // Đảm bảo file này chứa kết nối PDO của bạn
+            
+            $sql = "SELECT * FROM banner ORDER BY RAND()";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<li class="banner-content">
-                            <a href="' . $row["link"] . '">
-                                <img src="' . $row["image_path"] . '" alt="">
-                            </a>
-                          </li>';
+            if ($stmt->rowCount() > 0) {
+                // Biến lưu trữ danh sách banner để truyền sang JavaScript
+                $banners = [];
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $banners[] = [
+                        "link" => $row["link"],
+                        "image_path" => $row["image_path"]
+                    ];
                 }
+
+                // Chuyển đổi danh sách banner thành JSON
+                echo '<script>const banners = ' . json_encode($banners) . ';</script>';
             } else {
                 echo '<p>Không có banner nào.</p>';
             }
-            $conn->close();
             ?>
-        </ul>
+            <div class="banner-content">
+                <!-- Nội dung banner sẽ được cập nhật bằng JavaScript -->
+                <a href="" id="bannerLink">
+                    <img src="" alt="" id="bannerImage">
+                </a>
+            </div>
+        </div>
+        <button id="nextButton" class="banner-btn next-btn"><img src="/ZENTECH/Data/Image/next.png" alt=""></button>
     </div>
-    <div class="recommend">
-        <?php
-        // Định nghĩa các truy vấn và điều kiện
-        $categories = [
-            ['name' => 'Dành cho bạn'],
-        ];
 
-        foreach ($categories as $category) {
-            echo '<ul class="header-item">
-            <li class="header-topic"><button><h3>' . $category['name'] . '</h3></button></li>
-            <li>
-                <div class="other-link">
-                    <button><a href=""><p>Xem tất cả</p></a></button>
-                </div>
-            </li>
-          </ul>';
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bannerLink = document.getElementById("bannerLink");
+            const bannerImage = document.getElementById("bannerImage");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
 
-            echo '<div class="product-items-wrapper">';
+            let currentIndex = 0;
 
-            $conn = connectDatabase();
-            $sql = "SELECT * FROM products ORDER BY RAND()";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                $count = 0; // Đếm tổng số mục
-                echo '<ul class="product-items">';
-
-                while ($row = $result->fetch_assoc()) {
-                    // Dòng đầu tiên: hiển thị 4 sản phẩm
-                    if ($count < 4) {
-                        echo '<li class="product-item">
-                        <button>
-                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
-                                <img src="' . $row["image_path"] . '" alt="">
-                                <p>' . $row["name"] . '</p>
-                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-                                
-                            </a>
-                        </button>
-                      </li>';
-                    }
-
-                    // Dòng thứ hai: hiển thị 2 sản phẩm và 1 video ngẫu nhiên
-                    if ($count >= 4 && $count < 6) {
-                        if ($count == 4) echo '</ul><ul class="product-items">'; // Đóng dòng trước đó và mở dòng mới
-                        echo '<li class="product-item">
-                        <button>
-                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
-                                <img src="' . $row["image_path"] . '" alt="">
-                                <p>' . $row["name"] . '</p>
-                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-                                
-                            </a>
-                        </button>
-                      </li>';
-                    }
-
-                    if ($count == 6) {
-                        // Truy vấn lấy đường dẫn video ngẫu nhiên
-                        $video_sql = "SELECT video_path FROM videos ORDER BY RAND() LIMIT 1";
-                        $video_result = $conn->query($video_sql);
-                        $video_row = $video_result->fetch_assoc();
-                        $video_path = $video_row['video_path'];
-
-                        echo '<li class="product-item">
-                        <div class="video-container">
-                            <video src="' . $video_path . '" autoplay loop muted class="adv"></video>
-                        </div>
-                      </li>';
-                    }
-
-                    // Dòng thứ ba: hiển thị 4 sản phẩm
-                    if ($count >= 7 && $count < 11) {
-                        if ($count == 7) echo '</ul><ul class="product-items">'; // Đóng dòng trước đó và mở dòng mới
-                        echo '<li class="product-item">
-                        <button>
-                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
-                                <img src="' . $row["image_path"] . '" alt="">
-                                <p>' . $row["name"] . '</p>
-                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-                            </a>
-                        </button>
-                      </li>';
-                    }
-
-                    // Dòng thứ tư: hiển thị 1 video ngẫu nhiên và 2 sản phẩm
-                    if ($count == 11) {
-                        echo '</ul><ul class="product-items">'; // Đóng dòng trước đó và mở dòng mới
-
-                        // Truy vấn lấy đường dẫn video ngẫu nhiên
-                        $video_sql = "SELECT video_path FROM videos ORDER BY RAND() LIMIT 1";
-                        $video_result = $conn->query($video_sql);
-                        $video_row = $video_result->fetch_assoc();
-                        $video_path = $video_row['video_path'];
-
-                        echo '<li class="product-item">
-                        <div class="video-container">
-                            <video src="' . $video_path . '" autoplay loop muted class="adv"></video>
-                        </div>
-                      </li>';
-                    }
-
-                    if ($count >= 12 && $count < 14) {
-                        echo '<li class="product-item">
-                        <button>
-                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
-                                <img src="' . $row["image_path"] . '" alt="">
-                                <p>' . $row["name"] . '</p>
-                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-                                
-                            </a>
-                        </button>
-                      </li>';
-                    }
-
-                    $count++;
+            // Hàm hiển thị banner theo chỉ số
+            const showBanner = (index) => {
+                if (banners.length > 0) {
+                    const banner = banners[index];
+                    bannerLink.href = banner.link;
+                    bannerImage.src = banner.image_path;
                 }
+            };
 
-                echo '</ul>'; // Đóng dòng cuối cùng
-            } else {
-                echo '<p>Không có sản phẩm nào.</p>';
-            }
+            // Xử lý khi nhấn nút "Prev"
+            prevButton.addEventListener("click", () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : banners.length - 1;
+                showBanner(currentIndex);
+            });
 
-            $conn->close();
+            // Xử lý khi nhấn nút "Next"
+            nextButton.addEventListener("click", () => {
+                currentIndex = (currentIndex < banners.length - 1) ? currentIndex + 1 : 0;
+                showBanner(currentIndex);
+            });
 
-            echo '</div>'; // Đóng wrapper
-        }
-        ?>
-    </div>
+            // Hiển thị banner đầu tiên
+            showBanner(currentIndex);
+        });
+    </script>
+</div>
 
-    <div class="product">
-        <?php
-        // Định nghĩa các truy vấn và điều kiện
-        $categories = [
-            ['name' => 'APPLE', 'condition' => 'product_id > 100 AND product_id < 200'],
-            ['name' => 'Samsung', 'condition' => 'product_id > 200 AND product_id < 300'],
-            ['name' => 'Xiaomi', 'condition' => 'product_id > 300 AND product_id < 400'],
-            ['name' => 'Oppo', 'condition' => 'product_id > 400 AND product_id < 500'],
-            ['name' => 'Phụ kiện', 'condition' => 'product_id > 500 AND product_id < 600']
-        ];
+<div class="recommend">
+    <?php
+    // Định nghĩa các truy vấn và điều kiện
+    $categories = [
+        ['name' => 'Dành cho bạn'],
+    ];
 
-        foreach ($categories as $category) {
-            echo '<ul class="header-item">
-                    <li class="header-topic"><button><h3>' . $category['name'] . '</h3></button></li>
-                    <li>
-                        <div class="other-link">
-                            <button><a href=""><p>Xem tất cả</p></a></button>
-                        </div>
-                    </li>
-                  </ul>';
+    foreach ($categories as $category) {
+        echo '<ul class="header-item">
+        <li class="header-topic"><button><h3>' . $category['name'] . '</h3></button></li>
+        <li>
+            <div class="other-link">
+                <button><a href=""><p>Xem tất cả</p></a></button>
+            </div>
+        </li>
+      </ul>';
+
+        echo '<div class="product-items-wrapper">';
+
+        $sql = "SELECT * FROM products ORDER BY RAND()";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $count = 0;
             echo '<ul class="product-items">';
 
-            $conn = connectDatabase();
-            $sql = "SELECT * FROM products WHERE " . $category['condition'] . " ORDER BY RAND() LIMIT 4";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                // Dòng đầu tiên: hiển thị 4 sản phẩm
+                if ($count < 4) {
                     echo '<li class="product-item">
-                            <button>
-                                <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
-                                    <img src="' . $row["image_path"] . '" alt=""/>
-                                    <p>' . $row["name"] . '</p>
-                                    <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
-                                </a>
-                            </button>
-                          </li>';
+                    <button>
+                        <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                            <img src="' . $row["image_path"] . '" alt="">
+                            <p>' . $row["name"] . '</p>
+                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                        </a>
+                    </button>
+                  </li>';
                 }
-            } else {
-                echo '<p>Không có sản phẩm nào.</p>';
+
+                // Dòng thứ hai: hiển thị 2 sản phẩm và 1 video ngẫu nhiên
+                if ($count >= 4 && $count < 6) {
+                    if ($count == 4) echo '</ul><ul class="product-items">';
+                    echo '<li class="product-item">
+                    <button>
+                        <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                            <img src="' . $row["image_path"] . '" alt="">
+                            <p>' . $row["name"] . '</p>
+                            <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                        </a>
+                    </button>
+                  </li>';
+                }
+
+                if ($count == 6) {
+                    // Truy vấn lấy đường dẫn video ngẫu nhiên
+                    $video_sql = "SELECT video_path FROM videos ORDER BY RAND() LIMIT 1";
+                    $video_stmt = $pdo->prepare($video_sql);
+                    $video_stmt->execute();
+                    $video_row = $video_stmt->fetch(PDO::FETCH_ASSOC);
+                    $video_path = $video_row['video_path'];
+
+                    echo '<li class="product-item">
+                    <div class="video-container">
+                        <video src="' . $video_path . '" autoplay loop muted class="adv"></video>
+                    </div>
+                  </li>';
+                }
+
+                $count++;
             }
-            $conn->close();
 
             echo '</ul>';
+        } else {
+            echo '<p>Không có sản phẩm nào.</p>';
         }
-        ?>
-    </div>
+
+        echo '</div>'; // Đóng wrapper
+    }
+    ?>
+</div>
+
+<div class="product">
+    <?php
+    // Định nghĩa các truy vấn và điều kiện
+    $categories = [
+        ['name' => 'APPLE', 'condition' => 'product_id > 100 AND product_id < 200'],
+        ['name' => 'Samsung', 'condition' => 'product_id > 200 AND product_id < 300'],
+        ['name' => 'Xiaomi', 'condition' => 'product_id > 300 AND product_id < 400'],
+        ['name' => 'Oppo', 'condition' => 'product_id > 400 AND product_id < 500'],
+        ['name' => 'Phụ kiện', 'condition' => 'product_id > 500 AND product_id < 600']
+    ];
+
+    foreach ($categories as $category) {
+        echo '<ul class="header-item">
+                <li class="header-topic"><button><h3>' . $category['name'] . '</h3></button></li>
+                <li>
+                    <div class="other-link">
+                        <button><a href=""><p>Xem tất cả</p></a></button>
+                    </div>
+                </li>
+              </ul>';
+        echo '<ul class="product-items">';
+
+        $sql = "SELECT * FROM products WHERE " . $category['condition'] . " ORDER BY RAND() LIMIT 4";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<li class="product-item">
+                        <button>
+                            <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
+                                <img src="' . $row["image_path"] . '" alt=""/>
+                                <p>' . $row["name"] . '</p>
+                                <p class="price">' . number_format($row["price"], 0, ',', '.') . ' VNĐ</p>
+                            </a>
+                        </button>
+                      </li>';
+            }
+        } else {
+            echo '<p>Không có sản phẩm nào.</p>';
+        }
+
+        echo '</ul>';
+    }
+    ?>
 </div>

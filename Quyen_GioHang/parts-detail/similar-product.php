@@ -9,13 +9,15 @@ if (!$product_id) {
     exit;
 }
 
-// Truy vấn lấy thông tin sản phẩm
-$sql = "SELECT product_id, name, price, image_path FROM products WHERE product_id = $product_id";
-$result = $connect->query($sql);
+// Sử dụng PDO để truy vấn lấy thông tin sản phẩm
+$sql = "SELECT product_id, name, price, image_path FROM products WHERE product_id = :product_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+$stmt->execute();
 
 // Kiểm tra kết quả truy vấn
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+if ($stmt->rowCount() > 0) {
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $product_price = $row['price'];
     $product_name = $row['name'];
     $product_image = $row['image_path'];
@@ -31,15 +33,20 @@ $max_price = $product_price * 2;
 // Truy vấn lấy các sản phẩm tương tự
 $sql_similar = "SELECT product_id, name, price, image_path 
                 FROM products 
-                WHERE product_id != $product_id 
-                AND price BETWEEN $min_price AND $max_price
+                WHERE product_id != :product_id 
+                AND price BETWEEN :min_price AND :max_price
                 ORDER BY RAND()
                 LIMIT 5"; // Lọc sản phẩm cùng tầm giá
 
-$result_similar = $connect->query($sql_similar);
+$stmt_similar = $pdo->prepare($sql_similar);
+$stmt_similar->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+$stmt_similar->bindParam(':min_price', $min_price, PDO::PARAM_INT);
+$stmt_similar->bindParam(':max_price', $max_price, PDO::PARAM_INT);
+$stmt_similar->execute();
 
-if ($result_similar === false) {
-    echo "Lỗi truy vấn: " . $connect->error;
+// Kiểm tra lỗi truy vấn
+if ($stmt_similar === false) {
+    echo "Lỗi truy vấn: " . $pdo->errorInfo()[2];
     exit;
 }
 ?>
@@ -53,8 +60,8 @@ if ($result_similar === false) {
             <div class="box-product-similar">
                 <div class="list-products" id="productSlider">
                     <?php
-                    if ($result_similar->num_rows > 0) {
-                        while ($row = $result_similar->fetch_assoc()) {
+                    if ($stmt_similar->rowCount() > 0) {
+                        while ($row = $stmt_similar->fetch(PDO::FETCH_ASSOC)) {
                             echo '
                             <a href="/ZENTECH/Quyen_giohang/index-detail.php?id=' . $row["product_id"] . '">
                                 <div class="box-product">

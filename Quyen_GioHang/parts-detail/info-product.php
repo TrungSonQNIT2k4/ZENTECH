@@ -7,13 +7,18 @@ $product_id = isset($_GET['id']) ? intval($_GET['id']) : null;
 $product = null; // Khởi tạo biến sản phẩm để tránh lỗi
 
 if ($product_id) {
-    // Truy vấn cơ sở dữ liệu
-    $query = "SELECT * FROM products WHERE product_id = $product_id";
-    $result = mysqli_query($connect, $query);
+    try {
+        // Sử dụng PDO để truy vấn cơ sở dữ liệu
+        $query = "SELECT * FROM products WHERE product_id = :product_id";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['product_id' => $product_id]);
 
-    // Kiểm tra nếu truy vấn thành công và có kết quả
-    if ($result && mysqli_num_rows($result) > 0) {
-        $product = mysqli_fetch_assoc($result);
+        // Kiểm tra nếu truy vấn có kết quả
+        if ($stmt->rowCount() > 0) {
+            $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        echo "Lỗi: " . $e->getMessage();
     }
 }
 

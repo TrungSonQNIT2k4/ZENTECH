@@ -8,20 +8,21 @@ $product = null; // Khởi tạo biến sản phẩm để tránh lỗi
 
 // Kiểm tra giá trị product_id
 if ($product_id) {
-    // Truy vấn thông tin sản phẩm
-    $query = "SELECT * FROM products WHERE product_id = $product_id";
-    $result = mysqli_query($connect, $query);
+    try {
+        // Truy vấn thông tin sản phẩm
+        $query = "SELECT * FROM products WHERE product_id = :product_id";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['product_id' => $product_id]);
 
-    // Kiểm tra kết quả truy vấn
-    if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-            $product = mysqli_fetch_assoc($result); // Lấy thông tin sản phẩm
+        // Kiểm tra kết quả truy vấn
+        if ($stmt->rowCount() > 0) {
+            $product = $stmt->fetch(PDO::FETCH_ASSOC); // Lấy thông tin sản phẩm
         } else {
             echo "Không có sản phẩm nào với ID = $product_id.";
         }
-    } else {
+    } catch (PDOException $e) {
         // Nếu có lỗi trong truy vấn SQL, hiển thị lỗi
-        die("Lỗi SQL: " . mysqli_error($connect));
+        die("Lỗi SQL: " . $e->getMessage());
     }
 } else {
     echo "Không có mã sản phẩm được cung cấp.";

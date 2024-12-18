@@ -32,12 +32,18 @@ function login() {
     // Kiểm tra mật khẩu và thông báo nếu sai
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id']; // Đồng nhất key
+
+        // Lấy cart_id từ bảng users và lưu vào session
+        $_SESSION['cart_id'] = $user['cart_id']; // Giả sử bạn có cột `cart_id` trong bảng `users`
+
+        // Chuyển hướng người dùng đến trang indexA.php hoặc trang khác
         header("Location: /ZENTECH/indexA.php");
         exit; // Ngăn mã tiếp tục chạy
     } else {
         echo "<script>alert('Sai mật khẩu hoặc email.'); window.location='../login.php';</script>";
     }
 }
+
 
 function register() {
     global $pdo;

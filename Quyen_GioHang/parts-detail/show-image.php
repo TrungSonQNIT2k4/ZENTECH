@@ -11,33 +11,51 @@ $imageData = [];
 
 // Kiểm tra product_id có hợp lệ không
 if ($product_id) {
-    // Truy vấn ảnh chính của sản phẩm
-    $querymain = "SELECT image_path FROM products WHERE product_id = $product_id";
-    $resultmain = mysqli_query($connect, $querymain);
+    try {
+        // Truy vấn ảnh chính của sản phẩm
+        $querymain = "SELECT image_path FROM products WHERE product_id = :product_id";
+        $stmtmain = $pdo->prepare($querymain);
+        $stmtmain->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        $stmtmain->execute();
 
-    if ($resultmain && mysqli_num_rows($resultmain) > 0) {
-        $product = mysqli_fetch_assoc($resultmain);
-    }
-
-    // Truy vấn ảnh chi tiết và màu sắc
-    $query = "
-        SELECT 
-            detail_image.image_url AS detail_image_url,
-            color_image.img_url AS color_img_url,
-            code_color.color_id AS color_id
-        FROM products
-        LEFT JOIN color_image ON color_image.product_id = products.product_id
-        LEFT JOIN code_color ON code_color.color_id = color_image.color_id
-        LEFT JOIN detail_image ON color_image.color_id = detail_image.color_id
-        WHERE products.product_id = $product_id
-        " . ($color_id ? "AND color_image.color_id = $color_id" : ""); // Nếu có color_id thì lọc theo color_id
-
-    $result = mysqli_query($connect, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $imageData[] = $row;
+        if ($stmtmain->rowCount() > 0) {
+            $product = $stmtmain->fetch(PDO::FETCH_ASSOC);
         }
+
+        // Truy vấn ảnh chi tiết và màu sắc
+        $query = "
+            SELECT 
+                detail_image.image_url AS detail_image_url,
+                color_image.img_url AS color_img_url,
+                code_color.color_id AS color_id
+            FROM products
+            LEFT JOIN color_image ON color_image.product_id = products.product_id
+            LEFT JOIN code_color ON code_color.color_id = color_image.color_id
+            LEFT JOIN detail_image ON color_image.color_id = detail_image.color_id
+            WHERE products.product_id = :product_id
+        ";
+        
+        // Nếu có color_id thì lọc theo color_id
+        if ($color_id) {
+            $query .= " AND color_image.color_id = :color_id";
+        }
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        
+        if ($color_id) {
+            $stmt->bindParam(':color_id', $color_id, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $imageData[] = $row;
+            }
+        }
+    } catch (PDOException $e) {
+        echo "Lỗi khi truy vấn dữ liệu: " . $e->getMessage();
     }
 }
 ?>
@@ -45,7 +63,7 @@ if ($product_id) {
 <div class="box-image-product">
     <?php if (!empty($imageData)): ?>
         <?php $mainImage = $imageData[0]; ?>
-        <img id="main-image" data-color-id="<?= $mainImage['color_id'] ?>" src="<?= $mainImage['color_img_url'] ?>" alt="Product Image">
+        <img id="main-image" data-color-id="<?= htmlspecialchars($mainImage['color_id'], ENT_QUOTES, 'UTF-8') ?>" src="<?= htmlspecialchars($mainImage['color_img_url'], ENT_QUOTES, 'UTF-8') ?>" alt="Product Image">
     <?php else: ?>
         <img id="main-image" src="/ZENTECH/Quyen_giohang/assets/image/default.png" alt="No Image">
     <?php endif; ?>
@@ -60,15 +78,14 @@ if ($product_id) {
 <div class="more-image">
     <?php if (!empty($imageData)): ?>
         <?php foreach ($imageData as $image): ?>
-            <div class="image-detail" data-color-id="<?= $image['color_id'] ?>">
+            <div class="image-detail" data-color-id="<?= htmlspecialchars($image['color_id'], ENT_QUOTES, 'UTF-8') ?>">
                 <button class="image-pr">
-                    <img src="<?= $image['detail_image_url'] ?>" alt="Detail Image">
+                    <img src="<?= htmlspecialchars($image['detail_image_url'], ENT_QUOTES, 'UTF-8') ?>" alt="Detail Image">
                 </button>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
-
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

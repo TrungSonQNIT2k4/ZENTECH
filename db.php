@@ -1,10 +1,18 @@
 <?php
+// Cấu hình kết nối cơ sở dữ liệu
+$host = 'localhost'; // Hoặc tên máy chủ của bạn
+$dbname = 'zentech'; // Tên cơ sở dữ liệu của bạn
+$username = 'root';  // Tên người dùng
+$password = '';      // Mật khẩu của bạn
+
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=zentech", "root", "");
+    // Tạo đối tượng PDO để kết nối
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    
+    // Thiết lập chế độ lỗi của PDO để ném ra ngoại lệ khi có lỗi
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    die("Kết nối CSDL thất bại: " . $e->getMessage());
+    // Nếu kết nối không thành công, hiển thị lỗi
+    die("Kết nối cơ sở dữ liệu thất bại: " . $e->getMessage());
 }
 ?>
-    
