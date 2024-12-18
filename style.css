@@ -620,68 +620,35 @@ li {
   height: 650px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   background-color: rgb(255, 255, 255);
+  padding-top: 20px;
 }
-
-.menu_choose p {
+.menu_choose p{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
-.Sort {
-  margin-top: 30px;
+.Brand_choose, .Memory_choose, .Sort{
+  margin-bottom: 20px;
 }
-
-.tools {
+.btn-group button{
+  margin-left: 10px;
   margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.tools button {
   height: 30px;
-  width: 60px;
-  border-radius: 5px;
+  width: 120px;
   border: none;
-  transition: 0.8s;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-  background-color: white;
-}
-
-.tools button:hover {
-  transform: scale(1.1);
-  color: red;
-}
-
-.Price_choose {
-  margin-top: 20px;
-}
-
-.Brand_choose {
-  margin-top: 20px;
-}
-
-.Brand_tools {
-  margin: 10px;
-  display: grid;
-  justify-content: center;
-}
-
-.Brand_tools button {
-  background-color: white;
-  margin: 10px;
-  height: 30px;
-  width: 60px;
   border-radius: 5px;
-  border: none;
-  transition: 0.8s;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+.btn-group button:hover{
+  transform: scale(1.05);
+  background-color: green;
 }
 
-.Brand_tools button:hover {
-  transform: scale(1.1);
-  color: red;
+.btn-group button.active {
+  background-color: #4CAF50; /* Màu nền của nút đã chọn */
+  color: white; /* Màu chữ */
 }
-
 .Show_item {
   border-radius: 10px;
   margin-top: 100px;
@@ -706,7 +673,7 @@ li {
 }
 
 .item_link button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: red;
 }
 

@@ -84,7 +84,7 @@
         <li class="header-topic"><button><h3>' . $category['name'] . '</h3></button></li>
         <li>
             <div class="other-link">
-                <button><a href=""><p>Xem tất cả</p></a></button>
+                <button><a href="/ZENTECH/showsp.php"><p>Xem tất cả</p></a></button>
             </div>
         </li>
       </ul>';

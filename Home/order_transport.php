@@ -50,13 +50,13 @@ $address = $user['address'] ?? 'Chưa có thông tin';
             <div class="content">
                 <div class="menu_link">
                     <ul class="menu_link_content">
-                        <li> <a href="/Home/order_all.php">Tất cả</a></li>
-                        <li> <a href="/Home/order_pay.php">Chờ thanh toán</a></li>
-                        <li> <a href="/Home/order_transport.php">Vận chuyển</a></li>
-                        <li><a href="/Home/order_ship.php">Chờ giao hàng</a></li>
-                        <li> <a href="/Home/order_complete.php">Hoàn thành</a></li>
-                        <li> <a href="/Home/order_cancel.php">Đã hủy</a></li>
-                        <li> <a href="/Home/order_return.php">Trả hàng/Hoàn tiền</a></li>
+                        <li> <a href="/ZENTECH/Home/order_all.php">Tất cả</a></li>
+                        <li> <a href="/ZENTECH/Home/order_pay.php">Chờ thanh toán</a></li>
+                        <li> <a href="/ZENTECH/Home/order_transport.php">Vận chuyển</a></li>
+                        <li><a href="/ZENTECH/Home/order_ship.php">Chờ giao hàng</a></li>
+                        <li> <a href="/ZENTECH/Home/order_complete.php">Hoàn thành</a></li>
+                        <li> <a href="/ZENTECH/Home/order_cancel.php">Đã hủy</a></li>
+                        <li> <a href="/ZENTECH/Home/order_return.php">Trả hàng/Hoàn tiền</a></li>
                     </ul>
                 </div>
                 <div class="content_search">
@@ -87,7 +87,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Đang vận chuyển</p>
                         <div class="content_button">
                         <button onclick="cancelOrder()"><p>Hủy đơn</p></button>
-                        <a href="/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
+                        <a href="/ZENTECH/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Đang vận chuyển</p>
                         <div class="content_button">
                         <button onclick="cancelOrder()"><p>Hủy đơn</p></button>
-                        <a href="/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
+                        <a href="/ZENTECH/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
                         </div>
                     </div>
                 </div>
@@ -143,11 +143,11 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Đang vận chuyển</p>
                         <div class="content_button">
                             <button onclick="cancelOrder()"><p>Hủy đơn</p></button>
-                            <a href="/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
+                            <a href="/ZENTECH/Home/order_detail_ship.php"><button><p>Xem chi tiết đơn hàng</p></button></a>
                         </div>
                     </div>
                 </div>
-        <?php include ("/ZENTECH/Home/footer.php") ?>
+        <?php include ("/ZENTECH/ZENTECH/Home/footer.php") ?>
         </div>
         </div>
 </body>
