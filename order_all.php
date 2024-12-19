@@ -87,7 +87,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Chờ thanh toán</p>
                         <div class="content_button">
                             <button onclick="cancelOrder()"><p>Hủy đơn</p></button>
-                            <button><a href="/ZENTECH/Home/pay_product.php"><p>Thanh toán</p></a></button>
+                            <button><a href="pay_product.php"><p>Thanh toán</p></a></button>
                         </div>
                     </div>
                     <script src="/Javascript.js/cancel_order.js"></script>
@@ -116,7 +116,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Đã hủy bởi bạn</p>
                         <div class="content_button">
                             <button><a href="..."><p>Mua Lại</p></a></button>
-                            <button><a href="/ZENTECH/Home/order_detail_cancel.php"><p>Xem chi tiết hủy đơn</p></a></button>
+                            <button><a href="order_detail_cancel.php"><p>Xem chi tiết hủy đơn</p></a></button>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                         <p>Đang vận chuyển</p>
                         <div class="content_button">
                             <button><a onclick="cancelOrder()"><p>Hủy đơn</p></a></button>
-                            <button><a href="/ZENTECH/Home/order_detail_ship.php"><p>Xem chi tiết đơn hàng</p></a></button>
+                            <button><a href="order_detail_ship.php"><p>Xem chi tiết đơn hàng</p></a></button>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@ $address = $user['address'] ?? 'Chưa có thông tin';
                     <div class="content_info_cancel">
                         <p>Đang chờ giao hàng</p>
                         <div class="content_button">
-                            <button><a href="/ZENTECH/Home/order_detail_ship.php"><p>Xem chi tiết đơn hàng</p></a></button>
+                            <button><a href="order_detail_ship.php"><p>Xem chi tiết đơn hàng</p></a></button>
                         </div>
                     </div>
                 </div>
